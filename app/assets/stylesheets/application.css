@@ -23,3 +23,10 @@
 h1, h2, h3 {
   color: rgb(51, 122, 215)
 }
+
+div.flash {
+  border: 1px solid steelblue;
+  border-radius: 15px;
+  padding: 1rem;
+  background: rgb(184, 253, 255);
+}

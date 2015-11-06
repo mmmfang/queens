@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
-  def created
+  def create
     @user = User.new(user_params)
-
+    fail
     if @user.save
         flash[:message] = "Successfully created..."
     else
       flash[:message] = @user.errors.full_message.to_sentence
+    end
+    redirect_to root_path
   end
 
 
