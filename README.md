@@ -4,6 +4,10 @@
 
 ##Rails routes
 
+ROOT (/): renders Rails sign-in page
+POST /users: creates a new user object (and redirects to login?)
+
+POST /session: creates a new session and redirects to SPA (angular)
 
 ##Angular routes
 GET /session will return JSON object with logged in user
