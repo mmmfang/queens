@@ -46,29 +46,41 @@ app.controller = ('MoodController', [$http, function($http){
 
     // takes mood data from form and pushes it into the current_user_mood property
     controller.current_user_moods.push({
-      happiness: this.newHappiness,
-      blurb: this.newBlurb
+      happiness: this.newHappiness
     });
+
     // make the post to /moods
     $http.post('/moods', {
       authenticity_token: authenticity_token,
-      moods: {happiness: this.Happiness,
-      blurb: this.newBlurb
+      moods: {
+        happiness: this.Happiness
     }
   }).success(function(data){
     controller.current_user_moods.pop();
     controller.current_user_moods.push(data.moods);
     controller.getMood();
   });
-
-
   };
-
-
-
 }]);
 
 
 ////////////////////////////////////////
 /////////// FACTOR CONTROLLER //////////
 ////////////////////////////////////////
+app.controller('FactorController', ['$http', '$scope'], function($http, $scope){
+
+  // setting up the authenticity token
+  var authenticityToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+  // creating the factor
+  this.createFactor = function(){
+    $http.post('/moods'+$scope.$parent.mood.id+'/factors', {
+      authenticity_token: authenticity_token,
+      factor: {
+        description: this.newFactorDescription
+      }
+    }).success(function(data){
+      $scope.$parent.factorsCtrl.getMood();
+    });
+  };
+});
