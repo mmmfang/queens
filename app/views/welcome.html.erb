@@ -1,0 +1,20 @@
+<% if flash[:message] %>
+<div class="flash">
+  <%= flash[:message] %>
+</div>
+<% end %>
+
+<h1>Sensus</h1>
+<h2>Visualize your moods</h2>
+
+<h3>Sign up to get started!</h3>
+
+<form  action="users_path" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="email" name="user[email]" placeholder="your email">
+  <input type="password" name="user[password]" placeholder="your password">
+
+  <input type="submit" value="Sign up!">
+
+</form>
