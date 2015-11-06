@@ -1,0 +1,2 @@
+class FactorsController < ApplicationController
+end
