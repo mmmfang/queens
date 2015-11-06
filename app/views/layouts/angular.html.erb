@@ -8,9 +8,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 </head>
 <body>
+
   <header ng-controller="HeaderController as header">
     <h1> Welcome, {{ header.current_user.email }} </h1>
   </header>
+
   <%= yield %>
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
 </body>

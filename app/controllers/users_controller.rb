@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       flash[:message] = "Successfully created..."
     else
       flash[:message] = @user.errors.full_messages.to_sentence
-      
+
     end
       redirect_to root_path
   end
