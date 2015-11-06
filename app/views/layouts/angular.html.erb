@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="moodApp">
 <head>
   <title>Mood Ring</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 </head>
 <body>
-  <h1>Welcome!</h1>
+  <header ng-controller="HeaderController as header">
+    <h1> Welcome, {{ header.current_user.email }} </h1>
+  </header>
   <%= yield %>
+  <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
 </body>
 </html>
