@@ -15,6 +15,11 @@ class SessionController < ApplicationController
   redirect_to application_angular_path
 end
 
+def destroy
+  log_out!
+
+  redirect_to root_path
+end
   private
   def user_params
     params.require(:user).permit(:email, :password)
