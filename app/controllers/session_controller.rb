@@ -12,5 +12,12 @@ class SessionController < ApplicationController
 
   end
 
-  redirect_to application_home_path
+  redirect_to application_angular_path
+end
+
+  private
+  def user_params
+    params.require(:user).permit(:email, :password)
+end
+
 end

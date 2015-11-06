@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def welcome
     render '/welcome'
   end
+
+  def angular
+    render '/angular', layout: "angular"
+
+  end
 end

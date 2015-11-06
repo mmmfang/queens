@@ -18,3 +18,14 @@
   <input type="submit" value="Sign up!">
 
 </form>
+
+<h3>Sign in if you have an account</h3>
+
+<form action="<%= session_path %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="email" name="user[email]" placeholder="your email">
+  <input type="password" name="user[password]" placeholder="your password">
+
+  <input type="submit" value="Sign in!">
+
+</form>
