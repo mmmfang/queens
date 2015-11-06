@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :moods
   resources :users
 
+  post '/users' => 'users#create'
   get '/session' => 'session#current_user'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
