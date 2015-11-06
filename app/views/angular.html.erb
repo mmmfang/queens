@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="MoodApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+    <meta charset="utf-8">
+
+    <%= stylesheet_link_tag 'angular', media: 'all', 'data-turbolinks-track' => true %>
+   <%= csrf_meta_tags %>
+
+    <title>SENSUS</title>
+
+  </head>
+
+  <body>
+
+    <header ng-controller="HeaderController as header">
+      <h1> Welcome, {{ header.current_user.email }} </h1>
+    </header>
+
+
+
+
+
+<%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
+  </body>
+
+</html>
