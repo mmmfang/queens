@@ -5,20 +5,21 @@ class SessionController < ApplicationController
 
     if user && user.authenticate(user_params[:password])
 
-      # shorty awesomeness code!
+
       token = SecureRandom.urlsafe_base64
 
       session[:session_token] = token
       user.update(session_token: token)
 
-      flash[:message] = "Successfully created..."
+      flash[:message] = "Thanks for logging in, sinner."
       redirect_to application_angular_path
     else
-      flash[:message] = "Invalid email or password, please try again"
+      flash[:message] = "Email / Password combo does not exist!"
+      redirect_to root_path
     end
 
-  # redirect_to root_path
-end
+    
+  end
 
 def destroy
   log_out!
