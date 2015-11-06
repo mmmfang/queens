@@ -8,5 +8,5 @@ validates :password, length: {
   minimum: 8, allow_nil: true
 }
 
-
+  has_many :moods
 end
