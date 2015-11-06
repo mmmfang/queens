@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+
   root 'application#welcome'
 
   get 'application/angular'
 
-  resources :moods
-  resources :users 
+  resources :moods, defaults: { format: :json} do
+    resources :factors, shallow: true
+  end
 
+  resources :users
 
   get '/session' => 'session#current_user', defaults: { format: :json }
   post '/session' => 'session#create'

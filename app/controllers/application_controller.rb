@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
   def log_out!
   session[:session_token] = nil
 end
