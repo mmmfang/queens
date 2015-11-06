@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+div.flash {
+  border: 1px solid steelblue;
+  border-radius: 15px;
+  padding: 1rem;
+  background: rgb(184, 253, 255);
+}

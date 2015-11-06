@@ -1,0 +1,43 @@
+<% if flash[:message] %>
+<div class="flash">
+  <%= flash[:message] %>
+</div>
+<% end %>
+
+<h1>Sensus</h1>
+<h2>Visualize your moods</h2>
+
+<h3>Sign up to get started!</h3>
+
+<form action="<%= users_path %>" method="POST"
+    autocomplete="false">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <input type="email" name="user[email]"
+    placeholder="your email address"><br/>
+  <input type="password" name="user[password]"
+    placeholder="your password"><br/>
+  <input type="submit" value="Sign up">
+</form>
+
+<h3>Sign in if you have an account</h3>
+
+<form action="<%= session_path %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="email" name="user[email]" placeholder="your email">
+  <input type="password" name="user[password]" placeholder="your password">
+
+  <input type="submit" value="Sign in!">
+
+</form>
+
+<% if current_user %>
+<hr/>
+<form action="<%= session_path %>" method="POST">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Log Out!">
+</form>
+<% end %>
