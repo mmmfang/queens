@@ -5,15 +5,17 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def angular
+    render '/angular', layout: "angular"
+  end
+
   def welcome
     render '/welcome'
   end
 
-  def angular
-    render '/angular', layout: "angular"
-  end
-  
+
   private
+
   def current_user
     if session[:session_token]
       @current_user ||= User.find_by(session_token: session[:session_token])

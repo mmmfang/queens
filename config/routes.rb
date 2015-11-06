@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   get 'application/angular'
 
-  resources :moods
-  resources :users
+  resources :moods, defaults: { format: :json}
+  resources :users, defaults: { format: :json}
 
 
-  get '/session' => 'session#current_user'
+  get '/session' => 'session#current_user', defaults: { format: :json }
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 
