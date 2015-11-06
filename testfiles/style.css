@@ -1,0 +1,99 @@
+* {
+  margin: 0 0 0 5px;
+}
+
+#logo {
+  font-size: 24px;
+}
+
+.navbar {
+  font-family: 'Abel', sans-serif;
+  margin-bottom: 1em;
+}
+
+.emotions input{
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.one{
+  background-image: url('images/1.png');
+  height: 30px;
+  width: 30px;
+}
+
+.two{
+  background-image: url('images/2.png');
+}
+
+.three{
+  background-image: url('images/3.png');
+}
+
+.four{
+  background-image: url('images/4.png');
+}
+
+.five{
+  background-image: url('images/5.png');
+}
+
+.six{
+  background-image: url('images/6.png');
+}
+
+
+.seven{
+  background-image: url('images/7.png');
+}
+
+.eight{
+  background-image: url('images/8.png');
+}
+
+.nine{
+  background-image: url('images/9.png');
+}
+
+.ten{
+  background-image: url('images/10.png');
+}
+
+.emotions input:active +.mood{
+  opacity: .9;
+}
+
+.emotions input:checked +.mood{
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+
+.mood{
+  cursor: pointer;
+  background-size:contain;
+  background-repeat:no-repeat;
+  height: 75px;
+  width: 75px;
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+  -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+  filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.mood:hover {
+  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+
+
+/*input[type=radio] {
+    visibility:hidden;
+}*/

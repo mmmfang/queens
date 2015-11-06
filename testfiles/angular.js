@@ -1,0 +1,23 @@
+////////////////////////////////////////
+/////////// MOOD APPLICATION ///////////
+////////////////////////////////////////
+var app = angular.module('moodApp', []);
+
+
+////////////////////////////////////////
+/////////// MOOD CONTROLLER ////////////
+////////////////////////////////////////
+app.controller('MoodController', ['$http', function($http){
+
+  // value of happiness determined by emoji picked; default is null
+  this.happiness = null;
+}]);
+
+////////////////////////////////////////
+/////////// FACTOR CONTROLLER //////////
+////////////////////////////////////////
+app.controller('FactorController', ['$http', function($http){
+
+  // value of happiness determined by emoji picked; default is null
+  this.blurb = '';
+}]);
