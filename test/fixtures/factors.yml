@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mood_id: 
+  blurb: MyText
+
+two:
+  mood_id: 
+  blurb: MyText
