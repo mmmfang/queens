@@ -1,115 +1,127 @@
-<!-- the mood form -->
-<main ng-controller="MoodController as mood">
-<form ng-submit='mood.createMood()'>
+<!DOCTYPE html>
+<html ng-app="moodApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Mood Ring</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
+    <script src="angular.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+<!-- the mood form -->
+<form ng-controller="MoodController as mood">
 
   <div id="emotions">
     Pick an emoji that best represents your mood:
     <br/>
     <br/>
 
-    <input id="one"
-           class="mood-select"
-            type="radio"
+    <button id="one"
+            class="mood one"
+            type="button"
             value="1"
             name="mood"
             ng-model = "mood.happiness"/>
-    <label class="mood one"
-           for="one"><%= image_tag "1.png" %></label>
 
 
     <input id="two"
-    class="mood-select"
            type="radio"
            value="2"
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood two"
-           for="two"><%= image_tag "2.png" %></label>
+           for="2"></label>
 
     <input id="three"
-    class="mood-select"
            type="radio"
            value="3"
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood three"
-           for="three"><%= image_tag "3.png" %></label>
+           for="3"></label>
 
 
     <input id="four"
-    class="mood-select"
            type="radio"
            value="4"
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood four"
-           for="four"><%= image_tag "4.png" %></label>
+           for="4"></label>
 
 
     <input id="five"
-    class="mood-select"
            type="radio"
            value="5"
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood five"
-           for="five"><%= image_tag "5.png" %></label>
+           for="5"></label>
 
 
     <input id="six"
-    class="mood-select"
            type="radio"
            value="6"
            name="mood"
            ng-model = "mood.happiness"/>
-    <label class="mood six" for="six"><%= image_tag "6.png" %></label>
+    <label class="mood six" for="6"></label>
 
 
     <input id="seven"
-    class="mood-select"
            type="radio"
            value="7"
            name="mood"
            ng-model = "mood.happiness"/>
-    <label class="mood seven" for="seven"><%= image_tag "7.png" %></label>
+    <label class="mood seven" for="7"></label>
 
 
     <input id="eight"
-    class="mood-select"
            type="radio"
            value="8"
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood eight"
-           for="eight"><%= image_tag "8.png" %></label>
+           for="8"></label>
 
 
     <input id="nine"
-    class="mood-select"
            type="radio"
            value="9"
            name="mood"
-           ng-model = "mood.happiness">
+           ng-model = "mood.happiness"/>
     <label class="mood nine"
-           for="nine"><%= image_tag "9.png" %></label>
-    </input>
+           for="9"></label>
+
 
     <input id="ten"
-    class="mood-select"
            type="radio"
            value="10"
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood ten"
-           for="ten"><%= image_tag "10.png" %></label>
+           for="10"></label>
 
+</div>
 
 <!-- the factor form -->
-<div ng-controller="FactorController as factor" ng-show="mood.happiness != null">
+<form ng-controller="FactorController as factor">
+<div ng-show="mood.happiness != null">
   Why do you feel that way?<br/>
   <input type="text" ng-model="factor.blurb">
 </div>
 <input type="submit" value="DUMMY SUBMIT BUTTON">
 </form>
-</main>
+
+
+  </body>
+
+</html>
