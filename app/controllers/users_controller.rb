@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    fail
+    
     if @user.save
         flash[:message] = "Successfully created..."
     else
