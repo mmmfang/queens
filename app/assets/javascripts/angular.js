@@ -35,41 +35,39 @@ app.controller = ('MoodController', [$http, function($http){
     $http.get('/moods').success(function(data){
       controller.current_user_moods = data.moods;
     });
-  }
-
-
+  };
 
   // grab mood data for current_user
   this.getMood();
 
+
   // CREATE a new mood post
-  this.createMood = function (){
+  this.createMood = function(){
+
     // takes mood data from form and pushes it into the current_user_mood property
     controller.current_user_moods.push({
-      happiness: this.newMoodInteger,
-      blurb: this.newMoodBlurb
+      happiness: this.newHappiness,
+      blurb: this.newBlurb
     });
-
     // make the post to /moods
     $http.post('/moods', {
       authenticity_token: authenticity_token,
-      moods: {
-        happiness: this.newMoodInteger,
-        blurb: this.newMoodBlurb
-      }
-    }).success(function(data){
-      controller.current_user_moods.pop();
-      controller.current_user_moods.push(data.moods);
-      controller.getMood();
-    })
-  }
+      moods: {happiness: this.Happiness,
+      blurb: this.newBlurb
+    }
+  }).success(function(data){
+    controller.current_user_moods.pop();
+    controller.current_user_moods.push(data.moods);
+    controller.getMood();
+  });
+
+
   };
 
-  // GET THE MOOD NEW POST ROUTE
-  // $http.get('/moods').success(function(data){
-	// });
+
 
 }]);
+
 
 ////////////////////////////////////////
 /////////// FACTOR CONTROLLER //////////
