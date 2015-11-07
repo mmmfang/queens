@@ -56,7 +56,7 @@ app.controller('MoodController', ['$http', function($http){
     }
   }).success(function(data){
     controller.current_user_moods.pop();
-    controller.current_user_moods.push(data.mood);
+    controller.current_user_moods.push(data.moods);
     controller.getMood();
   });
   };
