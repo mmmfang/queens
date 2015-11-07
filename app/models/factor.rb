@@ -10,7 +10,7 @@ class Factor < ActiveRecord::Base
   # }
 
   belongs_to :mood
-  delegate :user, to: :mood
+  delegate :current_user, to: :mood
   # has_attached_file :image
 
 end
