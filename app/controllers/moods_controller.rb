@@ -13,12 +13,12 @@ before_action :require_current_user
 
 
     if @mood.save
-    else
-      render json: {
-        error: {
-          @mood.error.full_messages.to_string
-        }
-      }
+    # else
+    #   render json: {
+    #     error: {
+    #       @mood.error.full_messages.to_string
+    #     }
+    #   }
 
     end
   end
