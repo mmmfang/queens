@@ -1,6 +1,6 @@
 
 
-  json.factors(mood.factors) do |fact|
+  json.factors do
     json.id fact.id
     json.blurb fact.blurb
     json.attachment fact.attachment
