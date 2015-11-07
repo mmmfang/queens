@@ -4,13 +4,13 @@ class Factor < ActiveRecord::Base
   validates :mood, presence: true
 
 
-  paperclip image validation
-  validates_attachment :image, content_type: {
-    content_type: ["image/jpeg", "image/gif", "image/png"]
-  }
+  # paperclip image validation
+  # validates_attachment :image, content_type: {
+  #   content_type: ["image/jpeg", "image/gif", "image/png"]
+  # }
 
   belongs_to :mood
   delegate :current_user, to: :mood
-  has_attached_file :image
+  # has_attached_file :image
 
 end
