@@ -40,6 +40,16 @@ h1 {
 .headerlink {
   font-family: 'Abel', sans-serif !important;
   text-decoration: none;
+  color: #6dd4b1;
+  transition: all 0.2s linear;
+  border-bottom: 3px solid transparent;
+  transition: 0.5s ease;
+  white-space: nowrap;
+}
+
+.headerlink:hover, .headerlink:focus {
+  color: #357099;
+  border-bottom: 3px #357099;
 }
 
 div.flash {
