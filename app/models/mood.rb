@@ -4,6 +4,5 @@ class Mood < ActiveRecord::Base
 
 
   belongs_to :user
-
-  has_many :moods, dependent: :destroy
+  has_many :factors, dependent: :destroy
 end
