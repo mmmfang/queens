@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="moodApp">
 <head>
-  <title>Mood Ring</title>
+  <title>SENSUS</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 </head>
 <body>
 
-  <h1>Welcome!</h1>
+  <nav>
+  <header ng-controller="HeaderController as header">
+    <span>
+      <h1>
+        <!-- logo -->
+        <span class="logo">S E N S U S</span>
+        <br/>
+        <!-- new mood post -->
+        <a href class="headerlink"="#">POST YOUR MOOD</a> |
+        <!-- see all mood posts -->
+        <a href class="headerlink"="#">SEE YOUR MOODS</a> |
+        <!-- D3 Mood Chart -->
+        <a href class="headerlink"="#">MOOD CHART</a> |
+        <!-- user page -->
+        Welcome, <a href class="headerlink"="#">{{ header.current_user.email }}</a> </h1>
+  </header>
+  </nav>
+
   <%= yield %>
+  <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
 </body>
 </html>
