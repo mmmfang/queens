@@ -11,34 +11,36 @@ before_action :require_current_user
   def create
     @mood = current_user.moods.new(mood_params)
 
+
     if @mood.save
-      redirect_to moods_path
     else
-      flash[:message] = @moods.errors.full_messages.to_sentence
-render :new
-    # if @mood.save
-    # else
-    #   render json: {
-    #     error: {
-    #       @mood.error.full_messages.to_string
-    #     }
-    #   }
-    #
-    # end
+      render json: {
+        error: {
+          @mood.error.full_messages.to_string
+        }
+      }
+
+    end
   end
 end
 
 def edit
+  @mood = current_user.moods(mood_params)
 end
 
 def update
-
+  @mood = current_user.moods(mood_params)
+  @mood.update(mood_params)
 end
 def show
-
+  @mood = current_user.moods(mood_params)
 end
-def delete
+def destroy
+  @mood = current_user.moods(mood_params])
+  @mood.destroy
+  flash[:notice] = "Mood deleted!"
 
+  redirect_to moods_path
 end
 
 
