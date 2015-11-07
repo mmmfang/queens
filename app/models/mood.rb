@@ -1,6 +1,6 @@
 class Mood < ActiveRecord::Base
-  validates :happiness
-  validates :user, presence: true
+  validates :happiness, presence: true
+  
 
 
   belongs_to :user
