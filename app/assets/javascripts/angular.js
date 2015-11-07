@@ -70,7 +70,7 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
   // call in the authenticity token
   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-  // value of happiness determined by emoji picked; default is null
+  // blurb string
   this.blurb = '';
 
   // get the factors
@@ -81,17 +81,17 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
     });
   };
 
-  // fetches user happiness rating
+  // fetches user blurb
   this.getFactor();
 
-  // post the new mood
+  // post the new factor
   this.createFactor = function(){
     console.log(this);
     controller.current_user_blurb.push({
       blurb: this.blurb
     });
 
-  // post to /moods
+  // post to /factors
   $http.post('/factors', {
     authenticity_token: authenticity_token,
     factor: {
