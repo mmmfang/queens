@@ -22,7 +22,7 @@ before_action :require_current_user
 
     end
   end
-end
+
 
 def edit
   @mood = current_user.moods(mood_params)
