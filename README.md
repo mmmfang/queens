@@ -56,6 +56,20 @@ POST /moods/:id/factors will take a JSON object
   }
 ```
 
+#Paperclip details
+
+### Understanding Storage
+
+The files that are assigned as attachments are, by default, placed in the
+directory specified by the `:path` option to `has_attached_file`. By default, this
+location is `:rails_root/public/system/:class/:attachment/:id_partition/:style/:filename`.
+This location was chosen because, on standard Capistrano deployments, the
+`public/system` directory is symlinked to the app's shared directory, meaning it
+will survive between deployments. For example, using that `:path`, you may have a
+file at
+
+    /data/myapp/releases/20081229172410/public/system/users/avatar/000/000/013/small/my_pic.png
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
