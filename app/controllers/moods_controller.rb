@@ -1,6 +1,5 @@
 class MoodsController < ApplicationController
 before_action :require_current_user
-
 # skip_before_action :verify_authenticity_token, only: :create
   def index
     @moods = current_user.moods

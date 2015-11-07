@@ -1,4 +1,5 @@
 class FactorsController < ApplicationController
+  # skip_before_action :verify_authenticity_token
 
   def create
     @mood = Mood.find(params[:mood_id])
