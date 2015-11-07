@@ -29,38 +29,33 @@ app.controller('MoodController', ['$http', function($http){
 
   // value of happiness determined by emoji picked; default is null
   this.happiness = null;
+  // this.newHappiness = null;
 
-
-  // get the happiness value for current user
-  this.getMood = function(){
+  // gets mood data and adds to the controller
+  this.getMood = function (){
     $http.get('/moods').success(function(data){
-      controller.current_user_moods = data.moods;
+      controller.current_user_happiness = data.happiness;
     });
   };
 
-  // fetching happiness data
+  // fetching mood data
   this.getMood();
 
-  // post the new mood
-  this.createMood = function(){
-    console.log(this);
-    controller.current_user_moods.push({
+  // create a new mood
+  this.createMood = function (){
+    controller.current_user_happiness.push({
       happiness: this.happiness
     });
 
-  // post to /moods
-  $http.post('/moods', {
-    authenticity_token: authenticity_token,
-    mood: {
+    $http.post('/moods', {
+      authenticity_token: authenticity_token,
       happiness: this.happiness
-    }
-  }).success(function(data){
-    controller.current_user_moods.pop();
-    controller.current_user_moods.push(data.mood);
-    controller.getMood();
-  });
+    }).success(function(data){
+      controller.current_user_happiness.pop();
+      controller.current_user_happiness.push(data.happiness);
+      controller.getMood();
+    });
   };
-
 }]);
 
 // ////////////////////////////////////////
@@ -74,16 +69,16 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
   // blurb string
   this.blurb = '';
 
-  // // get the factors
-  // this.getFactor = function(){
-  //   $http.get('/moods/:mood_id/factors').success(function(data){
-  //     controller.current_user.blurb = data.blurb;
-  //     console.log(data);
-  //   });
-  // };
-  //
-  // // fetches user blurb
-  // this.getFactor();
+  // get the factors
+  this.getFactor = function(){
+    $http.get('/factors').success(function(data){
+      controller.current_user.blurb = data.blurb;
+      console.log(data);
+    });
+  };
+
+  // fetches user blurb
+  this.getFactor();
 
   // post the new factor
   this.createFactor = function(){
@@ -93,13 +88,13 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
     });
 
   // post to /factors
-  $http.post('/moods/'+$scope.$parent.mood.id+'/factors', {
+  $http.post('/factors', {
     authenticity_token: authenticity_token,
     factor: {
       blurb: this.blurb
     }
   }).success(function(data){
-    $scope.$parent.MoodController.getMood();
+    controller.getFactor();
   });
   };
 }]);
