@@ -1,7 +1,7 @@
 class FactorsController < ApplicationController
 
   def create
-    factor = Factor.find(params[:mood_id])
+    @mood = Mood.find(params[:mood_id])
 
     @factor = factor.moods.new(factor_params)
 
@@ -17,6 +17,15 @@ class FactorsController < ApplicationController
   end
 end
 
+def show
+  mood = Mood.find(params[:mood_id])
+  @factor = mood.factor([:id])
+end
+
+def index
+  mood = Mood.find(params[:mood_id])
+  @factors = mood.factors
+end
   private
 
   def factor_params

@@ -33,7 +33,7 @@ def update
   @mood.update(mood_params)
 end
 def show
-  @mood = current_user.moods(mood_params)
+  @mood = current_user.moods(mood_params).all
 end
 def destroy
   @mood = current_user.moods(mood_params])
