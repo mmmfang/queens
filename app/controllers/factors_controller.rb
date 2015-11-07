@@ -46,7 +46,7 @@ end
 
   private
   def factor_params
-    params.require(:factor).permit(:blurb, :occurred_at)
+    params.require(:factor).permit(:blurb, :occurred_at, :image)
 
   end
 

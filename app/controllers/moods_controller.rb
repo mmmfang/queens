@@ -13,16 +13,16 @@ before_action :require_current_user
 
 
     if @mood.save
-    else
-      render json: {
-        error: {
-          @mood.error.full_messages.to_string
-        }
-      }
+    # else
+    #   render json: {
+    #     error: {
+    #       @mood.error.full_messages.to_string
+    #     }
+    #   }
 
     end
   end
-end
+
 
 def edit
   @mood = current_user.moods(mood_params)
@@ -36,7 +36,7 @@ def show
   @mood = current_user.moods(mood_params).all
 end
 def destroy
-  @mood = current_user.moods(mood_params])
+  @mood = current_user.moods(mood_params)
   @mood.destroy
   flash[:notice] = "Mood deleted!"
 
