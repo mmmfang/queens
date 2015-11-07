@@ -65,13 +65,40 @@ app.controller('MoodController', ['$http', function($http){
 // ////////////////////////////////////////
 // /////////// FACTOR CONTROLLER //////////
 // ////////////////////////////////////////
-app.controller('FactorController', ['$http', function($http){
+app.controller('FactorController', ['$http', '$scope', function($http, $scope){
+
+  // call in the authenticity token
+  var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
   // value of happiness determined by emoji picked; default is null
   this.blurb = '';
 
-  // get the new blurb
+  // get the factors
+  this.getFactor = function(){
+    $http.get('/factors').success(function(data){
+      controller.current_user_blurb = data.blurb;
+      console.log(data);
+    });
+  };
 
-  // post the new blurb
+  // fetches user happiness rating
+  this.getFactor();
 
+  // post the new mood
+  this.createFactor = function(){
+    console.log(this);
+    controller.current_user_blurb.push({
+      blurb: this.blurb
+    });
+
+  // post to /moods
+  $http.post('/factors', {
+    authenticity_token: authenticity_token,
+    factor: {
+      blurb: this.blurb
+    }
+  }).success(function(data){
+    controller.getFactor();
+  });
+  };
 }]);

@@ -15,11 +15,32 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
+@import url(https://fonts.googleapis.com/css?family=Abel);
+
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
 
+header {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Abel', sans-serif !important;
+  font-size: 48px !important;
+  text-align: center !important;;
+}
+
+h1 {
+  font-family: 'Abel', sans-serif !important;
+}
+
+.headerlink {
+  font-family: 'Abel', sans-serif !important;
+  text-decoration: none;
+}
 
 div.flash {
   border: 1px solid steelblue;
