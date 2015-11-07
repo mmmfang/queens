@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="moodApp">
 <head>
-  <title>Mood Ring</title>
+  <title>SENSUS</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
   <%= csrf_meta_tags %>
@@ -9,9 +9,15 @@
 </head>
 <body>
 
+  <nav>
   <header ng-controller="HeaderController as header">
-    <h1> Welcome, {{ header.current_user.email }} </h1>
+    <span>
+      <h1>
+        <span class="logo">S E N S U S</span>
+        <br/>
+        <a href class="headerlink"="#">POST YOUR MOOD</a> | <a href class="headerlink"="#">SEE YOUR MOODS</a> | <a href class="headerlink"="#">MOOD CHART</a> | Welcome, {{ header.current_user.email }} </h1>
   </header>
+  </nav>
 
   <%= yield %>
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
