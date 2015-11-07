@@ -13,6 +13,16 @@ class UsersController < ApplicationController
   end
 
 
+
+
+    def destroy
+      # Remove the user id from the session
+      @current_user = session[:current_user_id] = nil
+      redirect_to root_url
+    end
+  end
+
+
   private
   def user_params
     params.require(:user).permit(:email, :password)
