@@ -36,7 +36,7 @@ def show
   @mood = current_user.moods(mood_params).all
 end
 def destroy
-  @mood = current_user.moods(mood_params])
+  @mood = current_user.moods(mood_params)
   @mood.destroy
   flash[:notice] = "Mood deleted!"
 
