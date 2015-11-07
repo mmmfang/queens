@@ -34,7 +34,7 @@ app.controller('MoodController', ['$http', function($http){
   // get the happiness value for current user
   this.getMood = function(){
     $http.get('/moods').success(function(data){
-      controller.current_user_happiness = data.mood;
+      controller.current_user_moods = data.moods;
     });
   };
 
@@ -44,7 +44,7 @@ app.controller('MoodController', ['$http', function($http){
   // post the new mood
   this.createMood = function(){
     console.log(this);
-    controller.current_user_happiness.push({
+    controller.current_user_moods.push({
       happiness: this.happiness
     });
 
@@ -55,6 +55,8 @@ app.controller('MoodController', ['$http', function($http){
       happiness: this.happiness
     }
   }).success(function(data){
+    controller.current_user_moods.pop();
+    controller.current_user_moods.push(data.mood);
     controller.getMood();
   });
   };
@@ -72,16 +74,16 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
   // blurb string
   this.blurb = '';
 
-  // get the factors
-  this.getFactor = function(){
-    $http.get('/factors').success(function(data){
-      controller.current_user.blurb = data.blurb;
-      console.log(data);
-    });
-  };
-
-  // fetches user blurb
-  this.getFactor();
+  // // get the factors
+  // this.getFactor = function(){
+  //   $http.get('/moods/:mood_id/factors').success(function(data){
+  //     controller.current_user.blurb = data.blurb;
+  //     console.log(data);
+  //   });
+  // };
+  //
+  // // fetches user blurb
+  // this.getFactor();
 
   // post the new factor
   this.createFactor = function(){
@@ -91,13 +93,13 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
     });
 
   // post to /factors
-  $http.post('/factors', {
+  $http.post('/moods/'+$scope.$parent.mood.id+'/factors', {
     authenticity_token: authenticity_token,
     factor: {
       blurb: this.blurb
     }
   }).success(function(data){
-    controller.getFactor();
+    $scope.$parent.MoodController.getMood();
   });
   };
 }]);
