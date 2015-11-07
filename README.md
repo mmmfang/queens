@@ -37,7 +37,8 @@ POST /moods will take a JSON object
   {
     authenticity_token: "alsdjhfkasjhdf"
     mood: {
-      happiness: 10
+      happiness: 10,
+      created_at: timestamps
     }
   }
 ```
@@ -50,11 +51,47 @@ POST /moods/:id/factors will take a JSON object
   {
     authenticity_token: "asdl;fhasdfiab38r0",
     factor: {
-      hdescription: "rain makes me sad",
-      time: 'today'
+      id: factor_id,
+      blurb: "rain makes me sad",
+      attachment: image_file_name,
+      occured_at: timestamps
     }
   }
 ```
+
+
+#ALL ROUTES
+Prefix Verb   URI Pattern                           Controller#Action
+          root GET    /                                     application#welcome
+application_angular GET    /application/angular(.:format)        application#angular
+  mood_factors GET    /moods/:mood_id/factors(.:format)     factors#index {:format=>:json}
+               POST   /moods/:mood_id/factors(.:format)     factors#create {:format=>:json}
+new_mood_factor GET    /moods/:mood_id/factors/new(.:format) factors#new {:format=>:json}
+   edit_factor GET    /factors/:id/edit(.:format)           factors#edit {:format=>:json}
+        factor GET    /factors/:id(.:format)                factors#show {:format=>:json}
+               PATCH  /factors/:id(.:format)                factors#update {:format=>:json}
+               PUT    /factors/:id(.:format)                factors#update {:format=>:json}
+               DELETE /factors/:id(.:format)                factors#destroy {:format=>:json}
+         moods GET    /moods(.:format)                      moods#index {:format=>:json}
+               POST   /moods(.:format)                      moods#create {:format=>:json}
+      new_mood GET    /moods/new(.:format)                  moods#new {:format=>:json}
+     edit_mood GET    /moods/:id/edit(.:format)             moods#edit {:format=>:json}
+          mood GET    /moods/:id(.:format)                  moods#show {:format=>:json}
+               PATCH  /moods/:id(.:format)                  moods#update {:format=>:json}
+               PUT    /moods/:id(.:format)                  moods#update {:format=>:json}
+               DELETE /moods/:id(.:format)                  moods#destroy {:format=>:json}
+         users GET    /users(.:format)                      users#index
+               POST   /users(.:format)                      users#create
+      new_user GET    /users/new(.:format)                  users#new
+     edit_user GET    /users/:id/edit(.:format)             users#edit
+          user GET    /users/:id(.:format)                  users#show
+               PATCH  /users/:id(.:format)                  users#update
+               PUT    /users/:id(.:format)                  users#update
+               DELETE /users/:id(.:format)                  users#destroy
+       session GET    /session(.:format)                    session#current_user {:format=>:json}
+               POST   /session(.:format)                    session#create
+               DELETE /session(.:format)                    session#destroy
+
 
 #Paperclip details
 
