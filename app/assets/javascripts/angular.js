@@ -34,6 +34,7 @@ app.controller('MoodController', ['$http', function($http){
   // get the happiness value for current user
   this.getMood = function(){
     $http.get('/moods').success(function(data){
+      console.log(data);
       controller.current_user_moods = data.moods;
     });
   };
@@ -44,19 +45,20 @@ app.controller('MoodController', ['$http', function($http){
   // post the new mood
   this.createMood = function(){
     console.log(this);
-    controller.current_user_moods.push({
-      happiness: this.happiness
-    });
+    // controller.current_user_moods.push({
+    //   happiness: this.happiness
+    // });
 
   // post to /moods
   $http.post('/moods', {
     authenticity_token: authenticity_token,
     mood: {
-      happiness: this.happiness
+      happiness: this.happiness,
+      id: this.id
     }
   }).success(function(data){
-    controller.current_user_moods.pop();
-    controller.current_user_moods.push(data.mood);
+    // controller.current_user_moods.pop();
+    // controller.current_user_moods.push(data.mood);
     controller.getMood();
   });
   };
@@ -87,13 +89,9 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
 
   // post the new factor
   this.createFactor = function(){
-    console.log(this);
-    controller.current_user_blurb.push({
-      blurb: this.blurb
-    });
 
   // post to /factors
-  $http.post('/moods/'+$scope.$parent.mood.id+'/factors', {
+  $http.post('/moods/'+$scope.$parent.moods.id+'/factors', {
     authenticity_token: authenticity_token,
     factor: {
       blurb: this.blurb
@@ -101,5 +99,5 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
   }).success(function(data){
     $scope.$parent.MoodController.getMood();
   });
-  };
+};
 }]);

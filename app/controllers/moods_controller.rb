@@ -32,7 +32,7 @@ def update
   @mood.update(mood_params)
 end
 def show
-  @mood = current_user.moods(mood_params).all
+  @mood = current_user.mood(mood_params)
 end
 def destroy
   @mood = current_user.moods(mood_params)
@@ -46,6 +46,6 @@ end
 private
 
   def mood_params
-    params.require(:mood).permit(:happiness)
+    params.require(:mood).permit(:happiness, :id)
   end
 end
