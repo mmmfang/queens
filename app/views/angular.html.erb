@@ -1,8 +1,7 @@
 <!-- the mood form -->
 <div ng-controller="MoodController as mood">
-<form ng-submit='mood.createMood()'>
 
-
+<form ng-submit="mood.createMood()">
   <div id="emotions">
     Pick an emoji that best represents your mood:
     <br/>
@@ -14,8 +13,7 @@
            type="radio"
            value="1"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood one"
            for="one">
       <%= image_tag "1.png" %>
@@ -28,8 +26,7 @@
            type="radio"
            value="2"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood two"
            for="two">
       <%= image_tag "2.png" %>
@@ -42,8 +39,7 @@
            type="radio"
            value="3"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood three"
            for="three">
       <%= image_tag "3.png" %>
@@ -55,8 +51,7 @@
            type="radio"
            value="4"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood four"
            for="four">
       <%= image_tag "4.png" %>
@@ -65,12 +60,11 @@
 
 <!-- five -->
     <input id="five"
-    class="mood-select"
+           class="mood-select"
            type="radio"
            value="5"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood five"
            for="five">
       <%= image_tag "5.png" %>
@@ -83,8 +77,7 @@
            type="radio"
            value="6"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood six"
            for="six">
       <%= image_tag "6.png" %>
@@ -97,8 +90,7 @@
            type="radio"
            value="7"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood seven"
            for="seven">
       <%= image_tag "7.png" %>
@@ -111,8 +103,7 @@
            type="radio"
            value="8"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood eight"
            for="eight">
       <%= image_tag "8.png" %>
@@ -125,8 +116,7 @@
            type="radio"
            value="9"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood nine"
            for="nine">
       <%= image_tag "9.png" %>
@@ -140,49 +130,54 @@
            type="radio"
            value="10"
            name="mood"
-           ng-model = "mood.happiness"
-           ng-change ="mood.createMood()"/>
+           ng-model = "mood.happiness"/>
     <label class="mood ten"
            for="ten">
       <%= image_tag "10.png" %>
-    </label>
-</form>
-</div>
 
-<!-- the factor form -->
+    </label>
+    <br/>
+    <br/>
+
+
+<!-- the factors form -->
+
+<!-- Negative Emotion Values -->
 <div ng-controller="FactorController as factor" ng-show="mood.happiness == 1 || mood.happiness == 2 || mood.happiness == 3">
 <form ng-submit="factor.createFactor()">
   Why are you feeling upset?<br/>
   <input class="blurbbox"
          type="text"
-         ng-model="factor.blurb"
+         ng-model="mood.factors"
          ng-maxlength="140"
-         ng-value="factor.blurb">
+         ng-value="mood.factors">
   <input type="submit"
          value="SUBMIT YOUR MOOD">
 </div>
 
+<!-- Neutral Emotion Values -->
 <div ng-controller="FactorController as factor" ng-show="mood.happiness == 4 || mood.happiness == 5 || mood.happiness == 6">
 <form ng-submit="factor.createFactor()">
   How could your day be better?<br/>
   <input class="blurbbox"
          type="text"
-         ng-model="factor.blurb"
+         ng-model="mood.factors"
          ng-maxlength="140"
-         ng-value="factor.blurb">
+         ng-value="mood.factors">
   <input type="submit"
          value="SUBMIT YOUR MOOD">
 </div>
 
+<!-- Positive Emotion Values -->
 <div ng-controller="FactorController as factor" ng-show="mood.happiness == 7 || mood.happiness == 8 || mood.happiness == 9 || mood.happiness == 10">
 <form ng-submit="factor.createFactor()">
   What made your day awesome?<br/>
   <input class="blurbbox"
          type="text"
-         ng-model="factor.blurb"
+         ng-model="mood.factors"
          ng-maxlength="140"
-         ng-value="factor.blurb">
+         ng-value="mood.factors">
   <input type="submit"
          value="SUBMIT YOUR MOOD">
 </div>
-</form>
+</div>
