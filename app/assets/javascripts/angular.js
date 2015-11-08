@@ -72,28 +72,21 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
   // blurb string
-  this.blurb = '';
+  var controller = this;
 
-  // // get the factors
-  // this.getFactor = function(){
-  //   $http.get('/moods/:mood_id/factors').success(function(data){
-  //     controller.current_user.blurb = data.blurb;
-  //     console.log(data);
-  //   });
-  // };
-  //
-  // // fetches user blurb
-  // this.getFactor();
+  // get the happiness value for current user
+  this.getFactor = function(){
+    $http.get('/factors').success(function(data){
+      controller.moods = $scope.mood.factors;
+    });
+  };
+
+  // fetching happiness data
+  this.getFactor();
 
   // post the new factor
   this.createFactor = function(){
-    console.log(this);
-    controller.current_user_blurb.push({
-      blurb: this.blurb
-    });
-
-  // post to /factors
-  $http.post('/moods/'+$scope.$parent.mood.id+'/factors', {
+  $http.post('/factors', {
     authenticity_token: authenticity_token,
     factor: {
       blurb: this.blurb
