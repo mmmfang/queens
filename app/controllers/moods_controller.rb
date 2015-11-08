@@ -24,16 +24,17 @@ before_action :require_current_user
 
 
 def edit
-  @mood = current_user.moods(mood_params)
+  @mood = Mood.find(params[:id])
 end
 
 def update
-  @mood = current_user.moods(mood_params)
+  @mood = Mood.find(params[:id])
   @mood.update(mood_params)
 end
 def show
   @mood = Mood.find(params[:id])
 end
+
 def destroy
   @mood = current_user.moods(mood_params)
   @mood.destroy
