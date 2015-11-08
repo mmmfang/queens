@@ -74,26 +74,9 @@ app.controller('FactorController', ['$http', '$scope', function($http, $scope){
   // blurb string
   this.blurb = '';
 
-  // // get the factors
-  // this.getFactor = function(){
-  //   $http.get('/moods/:mood_id/factors').success(function(data){
-  //     controller.current_user.blurb = data.blurb;
-  //     console.log(data);
-  //   });
-  // };
-  //
-  // // fetches user blurb
-  // this.getFactor();
-
   // post the new factor
   this.createFactor = function(){
-    console.log(this);
-    controller.current_user_blurb.push({
-      blurb: this.blurb
-    });
-
-  // post to /factors
-  $http.post('/moods/'+$scope.$parent.mood.id+'/factors', {
+  $http.post('/moods/'+$scope.$parent.current_user_moods.id+'/factors', {
     authenticity_token: authenticity_token,
     factor: {
       blurb: this.blurb
