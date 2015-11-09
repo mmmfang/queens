@@ -200,12 +200,15 @@
           </li>
       </ul>
 
-    <form ng-submit=mood.createFactor(m.id)>
-       <input type="text" placeholder="enter new factor here" ng-model="mood.newblurb">
+  <div ng-controller="FactorController as factor">
+
+    <form ng-submit=factor.createFactor()>
+       <input type="text" placeholder="enter new factor here" ng-model="factor.newblurb">
        <input type="submit" value="new factor here">
     </form>
   </li>
 
+  </div>
 </ul>
 
 

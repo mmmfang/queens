@@ -39,7 +39,7 @@ app.controller('MoodController', ['$http', function($http){
   };
 
   // fetching happiness data
-  this.getMood();
+  controller.getMood();
 
   // post the new mood
   this.createMood = function(){
@@ -47,46 +47,23 @@ app.controller('MoodController', ['$http', function($http){
     controller.current_user_moods.push({
       happiness: this.happiness
     });
-
-  // post to /moods
-  $http.post('/moods', {
-    authenticity_token: authenticity_token,
-    mood: {
-      happiness: this.happiness
-    }
-  }).success(function(data){
-    console.log("controller in moddsCTRL is", controller)
-    console.log("data in moodsCTRL is",data)
-    console.log("data.mood is", data.mood)
-
-    controller.current_user_moods.pop();
-    controller.current_user_moods.push(data.mood);
-    controller.getMood();
-  });
+    // post to /moods
+    $http.post('/moods', {
+      authenticity_token: authenticity_token,
+      mood: {
+        happiness: this.happiness
+      }
+    }).success(function(data){
+      console.log("controller in moddsCTRL is", controller)
+      console.log("data in moodsCTRL is",data)
+      console.log("data.mood is", data.mood)
+    
+      controller.current_user_moods.pop();
+      controller.current_user_moods.push(data.mood);
+      controller.getMood();
+    });
   };
 
-  this.createFactor = function(mood_id){
-    console.log("mood id is", mood_id);
-    console.log('/moods/'+mood_id+'/factors');
-
- $http.post('/moods/'+mood_id+'/factors', {
-     authenticity_token: authenticity_token,
-     factor: {
-       blurb: this.newblurb
-     }
-}).success(function(data){
-  console.log('SUCCESS');
-  console.log(data);
-  controller.getMood();
-//   //   controller.data.mood.factors.push()
-//   //   console.log($scope)
-//   //  $scope.$parent.mood.getMood();  //This line matches what is in scope
-//   // // });
-//   // })
-
-
- });
-}
 }]);
 
 
@@ -94,6 +71,31 @@ app.controller('MoodController', ['$http', function($http){
 // /////////// FACTOR CONTROLLER //////////
 // ////////////////////////////////////////
 
+app.controller('FactorController', ['$http', '$scope', function($http, $scope){
+
+ // authenticity token
+  var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+   this.createFactor = function(){
+      console.log();
+    $http.post('/moods/'+$scope.$parent.m.id+'/factors', {
+     authenticity_token: authenticity_token,
+     factor: {
+       blurb: this.newblurb
+     }
+}).success(function(data){
+  console.log('SUCCESS');
+  console.log(data);
+ $scope.$parent.mood.getMood();
+//   //   controller.data.mood.factors.push()
+//   //   console.log($scope)
+//   //  $scope.$parent.mood.getMood();  //This line matches what is in scope
+//   // // });
+//   // })
+
+ });
+    }
+}])
 // app.controller('FactorController', ['$http', '$scope', function($http, $scope){
 
 // //   // call in the authenticity token
