@@ -43,23 +43,26 @@ app.controller('MoodController', ['$http', function($http){
 
   // post the new mood
   this.createMood = function(){
-    console.log(this);
-    controller.current_user_moods.push({
-      happiness: this.happiness
-    });
+    // console.log(this);
+    // controller.current_user_moods.push({
+    //   happiness: this.happiness
+    // });
 
   // post to /moods
   $http.post('/moods', {
     authenticity_token: authenticity_token,
     mood: {
-      happiness: this.happiness,
-      factors: this.factors
+      happiness: this.happiness
     }
   }).success(function(data){
-    controller.current_user_moods.pop();
-    controller.current_user_moods.push(data.moods);
+    console.log("controller in moddsCTRL is", controller)
+    console.log("data in moodsCTRL is",data)
+    console.log("data.mood is", data.mood)
+    console.log("data.mood.factors is", data.mood.factors)
+    controller.current_user_moods.push(data.mood)
+    // controller.current_user_moods.pop();
+    // controller.current_user_moods.push(data.mood);
     controller.getMood();
-    controller.createFactor();
   });
   };
 
@@ -68,46 +71,43 @@ app.controller('MoodController', ['$http', function($http){
 // ////////////////////////////////////////
 // /////////// FACTOR CONTROLLER //////////
 // ////////////////////////////////////////
+
 app.controller('FactorController', ['$http', '$scope', function($http, $scope){
 
-  // call in the authenticity token
+//   // call in the authenticity token
   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-  // blurb string
-  var controller = this;
+//   var controller = this;
 
-  // get the happiness value for current user
-  // this.getFactor = function(){
-  //   $http.get('/factors').success(function(data){
-  //     controller.moods = $scope.mood.factors;
-  //   });
-  // };
+// // this.getFactor = function(){
+// //    $http.get('/factors').success(function(data){
+// //     controller.current_user_moods.push({
+// //       factor: {
+// //         blurb: this.blurb
+// //       }
+// //     });
+// //   })
+// //   }
 
-// this.getFactor = function(){
-//    $http.get('/factors').success(function(data){
-//     controller.current_user_moods.push({
-//       factor: {
-//         blurb: this.blurb
-//       }
-//     });
-//   })
-//   }
+//   // // fetching happiness data
+//   // this.getFactor();
 
+//   // post the new factor
 
-  // // fetching happiness data
-  // this.getFactor();
-
-console.log('scope is', $scope);
-  // post the new factor
   this.createFactor = function(mood_id){
-    console.log('/moods/'+mood_id +'/factors')
-  // $http.post('/mood/'+mood.id+'/factors', {
-  //   authenticity_token: authenticity_token,
-  //   factor: {
-  //     blurb: this.blurb
-  //   }
-  // }).success(function(data){
-  //   $scope.$parent.mood.getMood();  //This line matches what is in scope
+    console.log("factor data is", data);
+    console.log("moodid is", mood_id)
+
+  //  $http.post('/moods/'+mood.id +'/', {
+  //    authenticity_token: authenticity_token,
+  //    factors: {
+  //      blurb: this.factor_blurb
+  //    }
+  //  }).success(function(data){
+  //   controller.data.mood.factors.push()
+  //   console.log($scope)
+  //  $scope.$parent.mood.getMood();  //This line matches what is in scope
+  // // });
   // });
-  };
+}
 }]);
