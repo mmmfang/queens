@@ -67,7 +67,6 @@ app.controller('MoodController', ['$http', function($http){
 
   this.createFactor = function(mood_id){
     console.log("mood id is", mood_id);
-    console.log("this worked", this.blurb);
     console.log('/moods/'+mood_id+'/factors');
 
  $http.post('/moods/'+mood_id+'/factors', {
