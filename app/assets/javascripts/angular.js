@@ -76,6 +76,8 @@ app.controller('MoodController', ['$http', function($http){
      }
 }).success(function(data){
   console.log('SUCCESS');
+  console.log(data);
+  controller.getMood();
 //   //   controller.data.mood.factors.push()
 //   //   console.log($scope)
 //   //  $scope.$parent.mood.getMood();  //This line matches what is in scope
