@@ -149,7 +149,7 @@
                 mood.happiness == 3">
 
     Why are you feeling upset?<br/><br/>
-
+    {{mood.factorsBlurb}}
     <textarea type="text"
               ng-model="mood.factorsBlurb">
     </textarea>
@@ -190,9 +190,25 @@
          type="submit"
          value="Submit Your Mood">
 </form>
-</div>
 <!-- END OF FORMS -->
 
 
 
+
 <!-- SHOWING ALL POSTS -->
+Your Happiness
+<br/>
+<br/>
+<ul>
+  <li ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'">
+  Posted: {{m.created_at | date:'MM/dd/yyyy @ h:mma'}}<br/>
+  Happiness level: {{m.happiness}}<br/>
+  <ul>
+  <li ng-repeat="factor in m.factors">
+  Blurb: {{factor.blurb}}<br/>
+  </li>
+</ul>
+
+</li>
+</ul>
+</div>
