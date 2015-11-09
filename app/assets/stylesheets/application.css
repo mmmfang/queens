@@ -136,5 +136,13 @@ input[type=radio] {
 }
 
 #emoji {
-
+  margin-bottom: 20px;
+  border: 1px solid #6dd4b1;
+  border-radius: 5px;
+  height: 20%;
+  width: 20%;
+  text-align: center;
+  padding-top: 1em;
+  display: inline-block;
+  margin-right: 10px;
 }
