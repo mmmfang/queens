@@ -126,3 +126,15 @@ input[type=radio] {
 .blurbbox {
     width: 75%;
 }
+
+.emojishow img {
+  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  filter: brightness(1.2) grayscale(.5) opacity(.9);
+  height: 75px !important;
+  width: 75px !important;
+}
+
+#emoji {
+
+}

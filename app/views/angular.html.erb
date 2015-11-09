@@ -198,20 +198,79 @@
 
 <!-- SHOWING ALL POSTS -->
 <div ng-controller="MoodController as mood">
-Your Happiness
-<br/>
-<br/>
+  Your Happiness
+  <br/>
+  <br/>
 
-<div id = "moodPosts">
+    <div id = "moodPosts">
 
-  <div id="emoji" ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'">
-  Posted: {{m.created_at | date:'MM/dd/yyyy @ h:mma'}}<br/>
-  Happiness level: {{m.happiness}}<br/>
-  <div>
+      <div id="emoji"
+           ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'">
+        Posted: {{m.created_at | date:'MM/dd/yyyy @ h:mma'}}
 
-  <div ng-repeat="factor in m.factors">
-  Blurb: {{factor.blurb}}<br/>
-  </div>
+          <!-- one -->
+          <div ng-show="m.happiness==1"
+               class="emojishow">
+            <%= image_tag "1.png" %>
+          </div>
 
-</div>
+          <!-- two -->
+          <div ng-show="m.happiness==2"
+               class="emojishow">
+            <%= image_tag "2.png" %>
+          </div>
+
+          <!-- three -->
+          <div ng-show="m.happiness==3"
+               class="emojishow">
+            <%= image_tag "3.png" %>
+          </div>
+
+          <!-- four -->
+          <div ng-show="m.happiness==4"
+               class="emojishow">
+            <%= image_tag "4.png" %>
+          </div>
+
+          <!-- five -->
+          <div ng-show="m.happiness==5"
+               class="emojishow">
+            <%= image_tag "5.png" %>
+          </div>
+
+          <!-- six -->
+          <div ng-show="m.happiness==6"
+               class="emojishow">
+            <%= image_tag "6.png" %>
+          </div>
+
+          <!-- seven -->
+          <div ng-show="m.happiness==7"
+               class="emojishow">
+            <%= image_tag "7.png" %>
+          </div>
+
+          <!-- eight -->
+          <div ng-show="m.happiness==8"
+               class="emojishow">
+            <%= image_tag "8.png" %>
+          </div>
+
+          <!-- nine -->
+          <div ng-show="m.happiness==9"
+               class="emojishow">
+            <%= image_tag "9.png" %>
+          </div>
+
+          <!-- ten -->
+          <div ng-show="m.happiness==10"
+               class="emojishow">
+            <%= image_tag "10.png" %>
+          </div>
+
+      <div ng-repeat="factor in m.factors">
+        <h4>"{{factor.blurb}}"</h4>
+      </div>
+
+    </div>
 </div>
