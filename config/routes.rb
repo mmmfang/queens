@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :factors, shallow: true
   end
 
-  resources :users
+  resources :users, defaults: { format: :json }
 
   get '/session' => 'session#current_user', defaults: { format: :json }
   post '/session' => 'session#create'
