@@ -63,7 +63,7 @@ app.controller('MoodController', ['$http', function($http){
           blurb: controller.factorsBlurb
         }
       }).success(function (factorData) {
-        
+
         mood.factors.push(factorData.factor);
 
         controller.happiness = undefined;
