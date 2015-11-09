@@ -2,9 +2,9 @@ class FactorsController < ApplicationController
   # skip_before_action :verify_authenticity_token
 
   def create
-    @mood = Mood.find(params[:mood_id])
+    mood = Mood.find(params[:mood_id])
 
-    @factor = factor.moods.new(factor_params)
+    @factor = mood.factors.new(factor_params)
 
     if @factor.save
 

@@ -58,20 +58,34 @@ app.controller('MoodController', ['$http', function($http){
     console.log("controller in moddsCTRL is", controller)
     console.log("data in moodsCTRL is",data)
     console.log("data.mood is", data.mood)
-    mood_id = data.mood.id;
-    // controller.current_user_moods.push(data.mood)
+  
     controller.current_user_moods.pop();
     controller.current_user_moods.push(data.mood);
     controller.getMood();
   });
   };
 
-  this.createFactor = function(){
+  this.createFactor = function(mood_id){
     console.log("mood id is", mood_id);
     console.log("this worked", this.blurb); 
-    console.log('/moods/'+mood_id+'/factors')
-  }
+    console.log('/moods/'+mood_id+'/factors');
 
+ $http.post('/moods/'+mood_id+'/', {
+     authenticity_token: authenticity_token,
+     factors: {
+       blurb: this.blurb
+     }
+}).success(function(data){
+  console.log('SUCESS');
+//   //   controller.data.mood.factors.push()
+//   //   console.log($scope)
+//   //  $scope.$parent.mood.getMood();  //This line matches what is in scope
+//   // // });
+//   // })
+
+
+ });
+}
 }]);
 
 
