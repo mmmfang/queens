@@ -6,7 +6,9 @@ class FactorsController < ApplicationController
 
     @factor = mood.factors.new(factor_params)
 
+fail
     if @factor.save
+
 
     else
       render json: {
