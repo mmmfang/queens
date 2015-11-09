@@ -1,7 +1,7 @@
 ////////////////////////////////////////
 /////////// MOOD APPLICATION ///////////
 ////////////////////////////////////////
-var app = angular.module('moodApp', ['ngRoute']);
+var app = angular.module('moodApp', []);
 
 
 ////////////////////////////////////////
@@ -17,16 +17,15 @@ app.controller('HeaderController', ['$http', function($http){
 }]);
 
 
-// ////////////////////////////////////////
-// /////////// MOOD CONTROLLER ////////////
-// ////////////////////////////////////////
-app.controller('MoodController', ['$http', '$scope', function($http, $scope){
+////////////////////////////////////////
+/////////// MOOD CONTROLLER ////////////
+////////////////////////////////////////
+app.controller('MoodController', ['$http', function($http){
 
   // authenticity token
   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
   var controller = this;
-
 
   // value of happiness determined by emoji picked; default is null
   this.happiness = null;
@@ -46,16 +45,14 @@ app.controller('MoodController', ['$http', '$scope', function($http, $scope){
   this.createMood = function(){
     console.log("mood controller in createmood is", controller)
     controller.current_user_moods.push({
-      happiness: this.happiness,
-      factors: this.factors
+      happiness: this.happiness
     });
 
   // post to /moods
   $http.post('/moods', {
     authenticity_token: authenticity_token,
     mood: {
-      happiness: this.happiness,
-      factors: this.factors
+      happiness: this.happiness
     }
   }).success(function(data){
     console.log("controller in moddsCTRL is", controller)
@@ -68,48 +65,18 @@ app.controller('MoodController', ['$http', '$scope', function($http, $scope){
   });
   };
 
-}]);
-
-////////////////////////////////////////
-/////////// FACTOR CONTROLLER //////////
-////////////////////////////////////////
-// app.controller('FactorController', ['$http', '$scope', function($http, $scope){
-//
-//   // call in the authenticity token
-//   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-//
-//   $scope.factors.blurb = '';
-//
-//   // post the new factor
-//   this.createFactor = function(){
-//
-//   $scope.mood.factors.push($scope.blurb);
-//
-//   $http.post('/moods', {
-//     authenticity_token: authenticity_token,
-//     factors: {
-//       blurb: this.blurb
-//     }
-//   }).success(function(data){
-//     $scope.$parent.mood.getMood();
-//   });
-//   };
-// }]);
-
-
   this.createFactor = function(mood_id){
     console.log("mood id is", mood_id);
-    console.log("blurb is", this.newblurb);
+    console.log("this worked", this.blurb);
     console.log('/moods/'+mood_id+'/factors');
 
- $http.post('/moods/'+mood_id+'/factors/', {
+ $http.post('/moods/'+mood_id+'/factors', {
      authenticity_token: authenticity_token,
-     factor: {
-       blurb: this.newblurb
+     factors: {
+       blurb: this.blurb
      }
 }).success(function(data){
   console.log('SUCCESS');
-  console.log(data);
 //   //   controller.data.mood.factors.push()
 //   //   console.log($scope)
 //   //  $scope.$parent.mood.getMood();  //This line matches what is in scope
@@ -164,3 +131,39 @@ app.controller('MoodController', ['$http', '$scope', function($http, $scope){
 //   // });
 // }
 // }]);
+
+
+////////////////////////////////////////
+/////////////// ROUTING ////////////////
+////////////////////////////////////////
+// app.config(['$routeProvider', '$locationProvider',
+//   function($routeProvider, $locationProvider){
+//     $locationProvider.html5mode(true);
+//     $routeProvider
+//       .when('/home', {
+//         templateUrl: '/views/home.html.erb',
+//         controller: 'MoodController'
+//   })
+//       .otherwise({
+//         redirectTo: '/'
+//       });
+// }]);
+
+
+// app.config([‘$routeProvider, $locationProvider) {
+//   $locationProvider.html5Mode(true);
+//   $routeProvider
+//     .when("/contacts",
+//       { templateUrl: "<%= asset_path('contacts/index.html') %> ",
+//         controller: "ContactsIndexCtrl" })
+//     .when("/contacts/new",
+//       { templateUrl: "<%= asset_path('contacts/edit.html') %> ",
+//         controller: "ContactsEditCtrl" })
+//     .when("/contacts/:id",
+//       { templateUrl: "<%= asset_path('contacts/show.html') %> ",
+//         controller: "ContactsShowCtrl" })
+//     .when("/contacts/:id/edit",
+//       { templateUrl: "<%= asset_path('contacts/edit.html') %> ",
+//         controller: "ContactsEditCtrl" })
+//     .otherwise({ redirectTo: "/contacts" });
+// });
