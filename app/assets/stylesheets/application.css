@@ -13,3 +13,116 @@
  *= require_tree .
  *= require_self
  */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+@import url(https://fonts.googleapis.com/css?family=Abel);
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Abel', sans-serif !important;
+  font-size: 48px !important;
+  text-align: center !important;;
+}
+
+h1 {
+  font-family: 'Abel', sans-serif !important;
+}
+
+.headerlink {
+  font-family: 'Abel', sans-serif !important;
+  text-decoration: none;
+  color: #6dd4b1;
+  transition: all 0.2s linear;
+  border-bottom: 3px solid transparent;
+  transition: 0.5s ease;
+  white-space: nowrap;
+}
+
+.headerlink:hover, .headerlink:focus {
+  color: #357099;
+  border-bottom: 3px #357099;
+}
+
+div.flash {
+  border: 1px solid steelblue;
+  border-radius: 15px;
+  padding: 1rem;
+  background: rgb(184, 253, 255);
+}
+
+#logo {
+  font-size: 24px;
+}
+
+.navbar {
+  font-family: 'Abel', sans-serif;
+  margin-bottom: 1em;
+}
+
+.emotions input{
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.mood img {
+  height: 75px;
+  width: 75px;
+}
+
+.emotions input:active +.mood{
+  opacity: .9;
+}
+
+.emotions input:checked +.mood{
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+
+.mood{
+  cursor: pointer;
+  background-size:contain;
+  background-repeat:no-repeat;
+  height: 75px;
+  width: 75px;
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+  -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+  filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.mood:hover {
+  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+input[type='radio'].mood-select:checked + label {
+
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
+
+}
+
+input[type=radio] {
+    visibility:hidden;
+}
+
+.blurbbox {
+    width: 75%;
+}
