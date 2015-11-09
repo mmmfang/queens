@@ -143,9 +143,13 @@
 <!-- the factors form -->
 
 <!-- Negative Emotion Values -->
-<div ng-controller="FactorController as factor" ng-show="mood.happiness == 1 || mood.happiness == 2 || mood.happiness == 3">
-<form ng-submit="factor.createFactor()">
+<form ng-submit="mood.createFactor()">
+<div ng-show="mood.happiness == 1 ||
+              mood.happiness == 2 ||
+              mood.happiness == 3">
+
   Why are you feeling upset?<br/>
+
   <input class="blurbbox"
          type="text"
          ng-model="mood.factors"
@@ -156,28 +160,39 @@
 </div>
 
 <!-- Neutral Emotion Values -->
-<div ng-controller="FactorController as factor" ng-show="mood.happiness == 4 || mood.happiness == 5 || mood.happiness == 6">
-<form ng-submit="factor.createFactor()">
+<div ng-show="mood.happiness == 4 ||
+              mood.happiness == 5 ||
+              mood.happiness == 6">
+
   How could your day be better?<br/>
+
   <input class="blurbbox"
          type="text"
          ng-model="mood.factors"
          ng-maxlength="140"
          ng-value="mood.factors">
+
   <input type="submit"
          value="SUBMIT YOUR MOOD">
 </div>
 
 <!-- Positive Emotion Values -->
-<div ng-controller="FactorController as factor" ng-show="mood.happiness == 7 || mood.happiness == 8 || mood.happiness == 9 || mood.happiness == 10">
-<form ng-submit="factor.createFactor()">
+<div ng-show="mood.happiness == 7 ||
+              mood.happiness == 8 ||
+              mood.happiness == 9 ||
+              mood.happiness == 10">
+
   What made your day awesome?<br/>
+
   <input class="blurbbox"
          type="text"
          ng-model="mood.factors"
          ng-maxlength="140"
          ng-value="mood.factors">
+
   <input type="submit"
          value="SUBMIT YOUR MOOD">
+</form>
+</form>
 </div>
 </div>
