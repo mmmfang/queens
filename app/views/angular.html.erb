@@ -151,22 +151,22 @@
 
 <!-- Negative Emotion Values -->
 
- <!-- <div ng-controller="FactorController as factor"> -->   
+ <!-- <div ng-controller="FactorController as factor"> -->
 
 <!-- <form ng-submit="mood.createFactor(mood.id)"> -->
 <!--   <div ng-show="mood.happiness == 1 || mood.happiness == 2 || mood.happiness == 3">
     Why are you feeling upset?<br/>
-  </div> 
-  
+  </div>
+
    <! Neutral Emotion Values -->
  <!--  <div ng-show="mood.happiness == 4 || mood.happiness == 5 || mood.happiness == 6">
-    How could your day be better?<br/> 
+    How could your day be better?<br/>
   </div>
 
   <div ng-show="mood.happiness == 7 || mood.happiness == 8 || mood.happiness == 9 || mood.happiness == 10">
     What made your day awesome?<br/>
   </div>
-  
+
   <div ng-show="mood.happiness!= null">
     <input class="blurbbox"
            type="text"
@@ -176,7 +176,7 @@
     <input type="submit"
            value="SUBMIT YOUR MOOD">
   </div> -->
- 
+
 <!-- </form> -->
  <!--!!!!!!!!!END FORM CREATE FACTOR FORM !!!!!!!!!!!!!!!!!  -->
 
@@ -191,11 +191,11 @@
     Happiness level out of 10: {{m.happiness}}, as of
     {{m.created_at | date:'MM/dd/yyyy @ h:mma' }} <br/>
     ID number is: {{m.id}}  <br/>
-    Factors include: 
+    Factors include:
     <br/>
-      <ul> 
+      <ul>
           <li ng-repeat="factor in m.factors">
-            Blurb: {{factor.blurb}}, 
+            Blurb: {{factor.blurb}},
             Time Occurred: {{factor.created_at}}
           </li>
       </ul>

@@ -61,7 +61,7 @@ app.controller('MoodController', ['$http', '$scope', function($http, $scope){
     console.log("controller in moddsCTRL is", controller)
     console.log("data in moodsCTRL is",data)
     console.log("data.mood is", data.mood)
-  
+
     controller.current_user_moods.pop();
     controller.current_user_moods.push(data.mood);
     controller.getMood();
@@ -99,7 +99,7 @@ app.controller('MoodController', ['$http', '$scope', function($http, $scope){
 
   this.createFactor = function(mood_id){
     console.log("mood id is", mood_id);
-    console.log("blurb is", this.newblurb); 
+    console.log("blurb is", this.newblurb);
     console.log('/moods/'+mood_id+'/factors');
 
  $http.post('/moods/'+mood_id+'/factors/', {
@@ -164,5 +164,3 @@ app.controller('MoodController', ['$http', '$scope', function($http, $scope){
 //   // });
 // }
 // }]);
-
-
