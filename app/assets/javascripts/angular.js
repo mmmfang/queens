@@ -71,8 +71,8 @@ app.controller('MoodController', ['$http', function($http){
 
  $http.post('/moods/'+mood_id+'/factors', {
      authenticity_token: authenticity_token,
-     factors: {
-       blurb: this.blurb
+     factor: {
+       blurb: this.newblurb
      }
 }).success(function(data){
   console.log('SUCCESS');
