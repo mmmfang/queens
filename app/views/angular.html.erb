@@ -181,8 +181,6 @@
 
  <!-- </div>  factor  controller -->
 
-<h1>TESTING THE </h1>
-
 <p>Happiness Level Log
 <!-- This shows array w id, happiness , created_at, empty factors  -->
 <!-- {{mood.current_user_moods}} </p>-->
@@ -193,7 +191,6 @@
     {{m.created_at | date:'MM/dd/yyyy @ h:mma' }} <br/>
     ID number is: {{m.id}}  <br/>
     Factors include: 
-    <!-- {{m.factors}}  -->
     <br/>
       <ul> 
           <li ng-repeat="factor in m.factors">
@@ -203,7 +200,7 @@
       </ul>
 
     <form ng-submit=mood.createFactor(m.id)>
-       <input type="text" placeholder="enter new factor here" ng-model="mood.blurb">
+       <input type="text" placeholder="enter new factor here" ng-model="mood.newblurb">
        <input type="submit" value="new factor here">
     </form>
   </li>

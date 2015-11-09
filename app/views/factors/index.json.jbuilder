@@ -1,4 +1,4 @@
-
+json.mood_id @factor.mood_id
 
   json.factors(@factors) do |factor|
     json.id factor.id

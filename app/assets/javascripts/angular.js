@@ -67,16 +67,17 @@ app.controller('MoodController', ['$http', function($http){
 
   this.createFactor = function(mood_id){
     console.log("mood id is", mood_id);
-    console.log("this worked", this.blurb); 
+    console.log("blurb is", this.newblurb); 
     console.log('/moods/'+mood_id+'/factors');
 
- $http.post('/moods/'+mood_id+'/factors', {
+ $http.post('/moods/'+mood_id+'/factors/', {
      authenticity_token: authenticity_token,
-     factors: {
-       blurb: this.blurb
+     factor: {
+       blurb: this.newblurb
      }
 }).success(function(data){
-  console.log('SUCESS');
+  console.log('SUCCESS');
+  console.log(data);
 //   //   controller.data.mood.factors.push()
 //   //   console.log($scope)
 //   //  $scope.$parent.mood.getMood();  //This line matches what is in scope
