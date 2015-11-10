@@ -25,15 +25,15 @@
         <!-- see all mood posts -->
         <a href="/moods" class="headerlink"="#">SEE YOUR MOODS</a> |
         <!-- D3 Mood Chart -->
-        <a href="/charts" class="headerlink"="#">MOOD CHART</a> |
+        <a href class="headerlink"="#">MOOD CHART</a> |
         <!-- user page -->
         Welcome, <a href class="headerlink"="#">{{ header.current_user.email }}</a> </h1>
   </header>
   </nav>
-
+  <div ng-view>
   <%= yield %>
+</div>
 
-  <div ng-view></div>
 
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
 

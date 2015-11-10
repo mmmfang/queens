@@ -85,10 +85,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $locationProvider.html5Mode({enabled:true});
 
   $routeProvider
-    .when('/moods',
-      { templateUrl: '/angular_templates/moods.html',  ///SHOW ALL PAGE
-        controller: 'MoodController',
-        controllerAs: 'mood'
+    .when('/',
+    { templateUrl: '/angular_templates/angular.html', //FIRST PAGE w Post option
+      controller: 'MoodController',
+      controllerAs: 'mood'
     }).when('/moods/:id',
       { templateUrl: '/angular_templates/show.html',   ///SHOW ONE PAGE
         controller:  'MoodController',
@@ -97,10 +97,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       { templateUrl: '/angular_templates/user.html',   ///SHOW ONE PAGE
         controller:  'HeaderController',
         controllerAs: 'header'
-    }).when('/chart',
-      { templateUrl: '/angular_templates/chart.html',  ///D3
-        controller:  'ChartController',
-        controllerAs: 'chart'
     }).otherwise(
       { redirectTo: '/' 
     });
