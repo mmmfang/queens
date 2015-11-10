@@ -21,10 +21,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Abel);
 
-@import 'bower_component_name/stylesheet'
+
+
 
 /* GENERAL STYLING FOR EVERY PAGE */
-
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
@@ -64,6 +64,7 @@ header {
   border-bottom: 3px solid transparent;
   transition: 0.2s ease-out;
   white-space: nowrap;
+  font-size: 24px;
 }
 
 .headerlink:hover, .headerlink:focus {
