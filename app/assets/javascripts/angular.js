@@ -84,11 +84,11 @@ app.controller('MoodController', ['$http', function($http){
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({enabled:true});
 
-  $routeProvider
-    .when('/',
-    { templateUrl: '/angular_templates/angular.html', //FIRST PAGE w Post option
-      controller: 'MoodController',
-      controllerAs: 'mood'
+  $routeProvider.
+    when('/moods',
+    { templateUrl: '/angular_templates/moods.html',   ///SHOW ONE PAGE
+        controller:  'MoodController',
+        controllerAs: 'mood'
     }).when('/moods/:id',
       { templateUrl: '/angular_templates/show.html',   ///SHOW ONE PAGE
         controller:  'MoodController',
