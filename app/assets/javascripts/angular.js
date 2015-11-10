@@ -86,15 +86,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
   $routeProvider.
     when('/moods',
-    { templateUrl: '/angular_templates/moods.html',   ///SHOW ONE PAGE
+    { templateUrl: '/angular_templates/moods.html.erb',   ///SHOW ONE PAGE
         controller:  'MoodController',
         controllerAs: 'mood'
     }).when('/moods/:id',
-      { templateUrl: '/angular_templates/show.html',   ///SHOW ONE PAGE
+      { templateUrl: '/angular_templates/show.html.erb',   ///SHOW ONE PAGE
         controller:  'MoodController',
         controllerAs: 'mood'
     }).when('/users/:id',
-      { templateUrl: '/angular_templates/user.html',   ///SHOW ONE PAGE
+      { templateUrl: '/angular_templates/user.html.erb',   ///SHOW ONE PAGE
         controller:  'HeaderController',
         controllerAs: 'header'
     }).otherwise(

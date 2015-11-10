@@ -1,15 +1,8 @@
-<a href="/moods">Show All Moods</a>
-<a href="/moods/:id">Show single mood</a>
-<a href="/users/:id">Show single user</a>
-<a href="/chart">D3 resides here</a>
-
 <h1>This is the show all moods page</h1>
 <a href="/moods">Show All Moods</a>
-<a href="/moods/:id">Show single mood</a>
+<a href="/moods/"+m.id>Show single mood</a>
 <a href="/users/:id">Show single user</a>
 <a href="/chart">D3 resides here</a>
-
-<h1>This is the show single post page</h1>
 
 <div ng-controller="MoodController as mood">
   Your Happiness
@@ -23,7 +16,7 @@
           <!-- one -->
           <span ng-show="m.happiness==1"
                class="emojishow">
-            <%= image_tag "1.png" %>
+            <%= image_tag "./app/images/1.png" %>
           </span>
 
           <!-- two -->
@@ -35,13 +28,14 @@
           <!-- three -->
           <span ng-show="m.happiness==3"
                class="emojishow">
-            <%= image_tag "3.png" %>
+<!--             <%= image_tag "3.png" %> -->
+            <img ng-src ="assets/images/3.png" />
           </span>
 
           <!-- four -->
           <span ng-show="m.happiness==4"
                class="emojishow">
-            <%= image_tag "4.png" %>
+            <%= image_tag "./app/images/4.png" %>
           </span>
 
           <!-- five -->
