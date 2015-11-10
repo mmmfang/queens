@@ -24,6 +24,7 @@
 @import 'bower_component_name/stylesheet'
 
 /* GENERAL STYLING FOR EVERY PAGE */
+
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
@@ -35,10 +36,10 @@ body {
 
 /* LOGIN ACCEPTED STYLING */
 div.flash {
-  border: 1px solid steelblue;
+  border: 1px solid #357099;
   border-radius: 15px;
   padding: 1rem;
-  background: rgb(184, 253, 255);
+  background: #6dd4b1;
 }
 
 
