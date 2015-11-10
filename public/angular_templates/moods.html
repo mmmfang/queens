@@ -1,5 +1,16 @@
+<div id = "showall">
 <div id="emoji"
-     ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'">
+     ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'"
+     ng-style="m.happiness==1 && {'background-color':  '#80CCFF'} ||
+               m.happiness==2 && {'background-color':  '#00E5E6'} ||
+               m.happiness==3 && {'background-color':  '#FF5050'} ||
+               m.happiness==4 && {'background-color':  '#33CC33'} ||
+               m.happiness==5 && {'background-color':  '#6dd4b1'} ||
+               m.happiness==6 && {'background-color':  '#CC33FF'} ||
+               m.happiness==7 && {'background-color':  '#FFFF66'} ||
+               m.happiness==8 && {'background-color':  '#FF3399'} ||
+               m.happiness==9 && {'background-color':  '#66FF99'} ||
+               m.happiness==10 && {'background-color':  '#FFCCFF'}">
 
 
      <!-- POST DATE -->
@@ -15,7 +26,7 @@
 
      <!-- two -->
      <span ng-show="m.happiness==2"
-           class="emojisw">
+           class="emojishow">
        <img src="assets/2.png"/>
      </span>
 
@@ -72,4 +83,5 @@
       <span ng-repeat="factor in m.factors">
         <h4>"{{factor.blurb}}"</h4>
       </span>
+</div>
 </div>
