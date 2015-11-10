@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    # file upload stuff
+  other params
+  user.picture = params[:file]
+  user.save
+
     if @user.save
       flash[:message] = "Successfully created..."
     else
@@ -27,7 +32,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :file)
 
   end
 end
