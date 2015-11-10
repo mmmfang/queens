@@ -82,8 +82,9 @@ app.controller('MoodController', ['$http', function($http){
 
 
 
-//TESTING THE ROUTE CONTOLLER - Just put it in here for testing
-
+////////////////////////////////////////
+/////////// ROUTE CONTROLLER ///////////
+////////////////////////////////////////
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({enabled:true});
 
