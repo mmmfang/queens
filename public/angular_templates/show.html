@@ -1,15 +1,3 @@
-<a href="/moods">Show All Moods</a>
-<a href="/moods/:id">Show single mood</a>
-<a href="/users/:id">Show single user</a>
-<a href="/chart">D3 resides here</a>
-
-<!-- !! MOVE TO MOODS.HTML -->
-<!-- SHOWING ALL POSTS -->
-<div ng-controller="MoodController as mood">
-  Your Happiness
-  <br/>
-  <br/>
-
       <div id="emoji"
            ng-repeat="m in mood.current_user_moods |
                       orderBy: '-created_at'">
@@ -80,7 +68,3 @@
       <span ng-repeat="factor in m.factors">
         <h4>"{{factor.blurb}}"</h4>
       </span>
-
-    </div>
-
->>>>>>> 8b3c20814b7abe40da2f3333c63ec6120b850266
