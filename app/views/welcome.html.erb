@@ -1,27 +1,59 @@
-<h1>SENSUS</h1>
-<h2>visualize your moods</h2>
+<html>
+<head>
+  <title>SENSUS</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
+  <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 
-<h3>Sign up to get started!</h3>
+</head>
+<body>
 
-<form action="<%= users_path %>" method="POST"
-    autocomplete="false">
-  <input type="hidden" name="authenticity_token"
-    value="<%= form_authenticity_token %>">
+  <nav>
+  <header ng-controller="HeaderController as header">
+    <span>
+      <h1>
+        <!-- logo -->
+        <span class="logo">S E N S U S</span>
+        <br/>
+        <!-- new mood post -->
+        <a href class="headerlink"="#">POST YOUR MOOD</a> |
+        <!-- see all mood posts -->
+        <a href class="headerlink"="#">SEE YOUR MOODS</a> |
+        <!-- D3 Mood Chart -->
+        <a href class="headerlink"="#">MOOD CHART</a>
+  </header>
+  </nav>
 
-  <input type="email" name="user[email]"
-    placeholder="your email address"><br/>
-  <input type="password" name="user[password]"
-    placeholder="your password"><br/>
-  <input type="submit" value="Sign up">
-</form>
+  <%= yield %>
 
-<h3>Sign in if you have an account</h3>
+  <h3>Sign up to get started!</h3>
 
-<form action="<%= session_path %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="email" name="user[email]" placeholder="your email">
-  <input type="password" name="user[password]" placeholder="your password">
+  <form action="<%= users_path %>" method="POST"
+      autocomplete="false">
+    <input type="hidden" name="authenticity_token"
+      value="<%= form_authenticity_token %>">
 
-  <input type="submit" value="Sign in!">
+    <input type="email" name="user[email]"
+      placeholder="your email address"><br/>
+    <input type="password" name="user[password]"
+      placeholder="your password"><br/>
+    <input type="submit" value="Sign up">
+  </form>
 
-</form>
+  <h3>Sign in if you have an account</h3>
+
+  <form action="<%= session_path %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="email" name="user[email]" placeholder="your email">
+    <input type="password" name="user[password]" placeholder="your password">
+
+    <input type="submit" value="Sign in!">
+
+  </form>
+
+
+
+</body>
+</html>
