@@ -1,31 +1,9 @@
 
 //defining data globally
 
-var data;
-d3.json('http://localhost:3000/moods.json', function (error, json) {
-  if (error) return console.warn(error);
-  data = json;
-  // drawGraph();
-});
-
-var graphApp = angular.module('d3app', []);
+angular.module('d3app', ['d3'])
 //set up controller to get the data
-graphApp.controller('graphCtrl', function graphCtrl ($scope, $http)) {
-  $scope.getData = function () {
-    $http({
-      method: 'GET',
-      url: 'http://localhost:3000/modds.json'
-    }).
-    success(function (data){
-      $scope.data = data;
-    });
-  };
-  $scope.getData();
-};
-
-
-  graphApp.directive('d3Graph', function (){
-
+.directive('d3Graph', function (){
 
     return {
       // restrict to element only
@@ -36,8 +14,18 @@ graphApp.controller('graphCtrl', function graphCtrl ($scope, $http)) {
       template: '<div id="graph"></div>',
       link: function(scope, element, attrs) {
 
-          //d3 code - setup bar graph
+          //get data
+          scope.getData = function () {
+            $http({
+              method: 'GET',
+              url: 'http://localhost:3000/moods.json'
+            }).
+            success(function (data){
+              $scope.data = data;
+            });
+          }; scope.getData();
 
+          //d3 code - setup bar graph
           //setup margins
           var margin = { top: 10, right: 20, bottom: 10, left: 20};
           var w = 400 - margin.left - margin.right;
@@ -79,7 +67,7 @@ graphApp.controller('graphCtrl', function graphCtrl ($scope, $http)) {
             .attr('height', function(d) { return yScale(d); });
 
 
-        $scope.data = [$scope.moods.happiness, $scope.moods.occurred_at]
+        // $scope.data = [$scope.moods.happiness, $scope.moods.occurred_at]
 
 
       }
@@ -88,3 +76,13 @@ graphApp.controller('graphCtrl', function graphCtrl ($scope, $http)) {
     };
 
   });
+  // ($scope, $http)) {
+  //   $scope.getData = function () {
+  //     $http({
+  //       method: 'GET',
+  //       url: 'http://localhost:3000/moods.json'
+  //     }).
+  //     success(function (data){
+  //       $scope.data = data;
+  //     });
+  //   };

@@ -2,13 +2,16 @@ Rails.application.routes.draw do
 
   root 'application#welcome'
 
-  get 'application/angular' 
+  get 'application/angular'
 
   resources :moods, defaults: { format: :json} do
     resources :factors, shallow: true
   end
 
   resources :users, defaults: { format: :json }
+
+  # d3 routes
+  get '/graph' => 'graph#view'
 
   get '/session' => 'session#current_user', defaults: { format: :json }
   post '/session' => 'session#create'
