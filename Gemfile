@@ -39,6 +39,9 @@ gem "bower-rails", "~> 0.10.0"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#puma will be web server
+gem 'puma' 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
