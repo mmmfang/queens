@@ -1,18 +1,15 @@
 {
-  "name": "queens",
-  "homepage": "https://github.com/shulihallak/queens",
-  "authors": [
-    "shulihallak <shuli@invisiblenetworks.co>"
-  ],
-  "description": "",
-  "main": "",
-  "moduleType": [],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+  "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {
+      // "threex"      : "git@github.com:rharriso/threex.git",
+      // "gsvpano.js"  : "https://github.com/rharriso/GSVPano.js/blob/master/src/GSVPano.js"
+    }
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      // "three.js"    : "https://raw.github.com/mrdoob/three.js/master/build/three.js"
+    }
+  }
 }
