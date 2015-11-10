@@ -13,15 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+/* IMPORTING GOOGLE FONTS */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 @import url(https://fonts.googleapis.com/css?family=Abel);
 
+
+
+/* GENERAL STYLING FOR EVERY PAGE */
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
 
+
+
+/* LOGIN ACCEPTED STYLING */
+div.flash {
+  border: 1px solid steelblue;
+  border-radius: 15px;
+  padding: 1rem;
+  background: rgb(184, 253, 255);
+}
+
+
+
+/* HEADER AND NAV */
 header {
   text-align: center;
   margin: 0 auto;
@@ -33,39 +53,33 @@ header {
   text-align: center !important;;
 }
 
-h1 {
-  font-family: 'Abel', sans-serif !important;
-}
-
 .headerlink {
   font-family: 'Abel', sans-serif !important;
   text-decoration: none;
   color: #6dd4b1;
   transition: all 0.2s linear;
   border-bottom: 3px solid transparent;
-  transition: 0.5s ease;
+  transition: 0.2s ease-out;
   white-space: nowrap;
 }
 
 .headerlink:hover, .headerlink:focus {
   color: #357099;
   border-bottom: 3px #357099;
-}
-
-div.flash {
-  border: 1px solid steelblue;
-  border-radius: 15px;
-  padding: 1rem;
-  background: rgb(184, 253, 255);
-}
-
-#logo {
-  font-size: 24px;
+  transition: 0.2s ease-in;
 }
 
 .navbar {
   font-family: 'Abel', sans-serif;
   margin-bottom: 1em;
+}
+
+
+
+/* EMOJI MENU */
+#mood-form {
+  margin-top: 25px;
+  text-align: center;
 }
 
 .emotions input{
@@ -123,10 +137,35 @@ input[type=radio] {
     visibility:hidden;
 }
 
-.blurbbox {
-    width: 75%;
+.emojiWrap {
+  position: relative;
+  height: 100px;
+  width: 100px;
 }
 
+/* FACTORS MENU */
+#blurb {
+    width: 400px;
+    border: 1px solid #6dd4b1;
+    border-radius: 5px;
+    font-size: 18px;
+    font: 'Open Sans', sans-serif;
+}
+
+/* SUBMIT BUTTON */
+#moodsubmit {
+  border-radius: 5px;
+  border: 0;
+  width: 200px !important;
+  height: 45px !important;
+  font-family: 'Abel', sans-serif !important;
+  font: 24px white;
+  background: #6dd4b1;
+}
+
+
+
+/* STYLING OF EMOJIS THROUGHOUT */
 .emojishow img {
   -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
   -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
@@ -135,12 +174,15 @@ input[type=radio] {
   width: 75px !important;
 }
 
-#emoji {
+
+
+/* STYLING OF MOOD & FACTORS POSTS*/
+#moodpost {
   margin-bottom: 20px;
   border: 1px solid #6dd4b1;
   border-radius: 5px;
-  height: 20%;
-  width: 20%;
+  height: 250px;
+  width: 250px;
   text-align: center;
   padding-top: 1em;
   display: inline-block;
