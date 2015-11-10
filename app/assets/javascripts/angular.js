@@ -98,6 +98,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         controller:  'HeaderController',
         controllerAs: 'header'
     }).otherwise(
-      { redirectTo: '/' 
+      { redirectTo: '/application/angular' 
     });
  }]) ;
