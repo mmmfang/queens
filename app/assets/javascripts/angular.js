@@ -80,27 +80,27 @@ app.controller('MoodController', ['$http', function($http){
 
 
 //TESTING THE ROUTE CONTOLLER - Just put it in here for testing
-
-app.config([‘$routeProvider’, ‘$locationProvider’, function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode({enabled:true});
-
-  $routeProvider
-    .when('/moods',
-      { templateUrl: '/angular_templates/moods.html',  ///SHOW ALL PAGE
-        controller: 'MoodController',
-        controllerAs: 'mood'
-    }).when('/moods/:id',
-      { templateUrl: '/angular_templates/show.html',   ///SHOW ONE PAGE
-        controller:  'MoodController',
-        controllerAs: 'mood'
-    }).when('/users/:id',
-      { templateUrl: '/angular_templates/user.html',   ///SHOW ONE PAGE
-        controller:  'HeaderController',
-        controllerAs: 'header'
-    }).when('/chart',
-      { templateUrl: '/angular_templates/chart.html',  ///D3
-        controller:  'ChartController',
-        controllerAs: 'chart'
-    }).otherwise(
-      { redirectTo: '/' });
-});
+// 
+// app.config([‘$routeProvider’, ‘$locationProvider’, function($routeProvider, $locationProvider) {
+//   $locationProvider.html5Mode({enabled:true});
+//
+//   $routeProvider
+//     .when('/moods',
+//       { templateUrl: '/angular_templates/moods.html',  ///SHOW ALL PAGE
+//         controller: 'MoodController',
+//         controllerAs: 'mood'
+//     }).when('/moods/:id',
+//       { templateUrl: '/angular_templates/show.html',   ///SHOW ONE PAGE
+//         controller:  'MoodController',
+//         controllerAs: 'mood'
+//     }).when('/users/:id',
+//       { templateUrl: '/angular_templates/user.html',   ///SHOW ONE PAGE
+//         controller:  'HeaderController',
+//         controllerAs: 'header'
+//     }).when('/chart',
+//       { templateUrl: '/angular_templates/chart.html',  ///D3
+//         controller:  'ChartController',
+//         controllerAs: 'chart'
+//     }).otherwise(
+//       { redirectTo: '/' });
+// });
