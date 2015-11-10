@@ -21,7 +21,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Abel);
 
-
+@import 'bower_component_name/stylesheet'
 
 /* GENERAL STYLING FOR EVERY PAGE */
 * {

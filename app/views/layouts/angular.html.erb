@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
   <%= csrf_meta_tags %>
+  <meta charset="utf-8">  <!-- it's important for d3.js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/nvd3/nv.d3.js"></script> <!-- or use another assembly -->
+<script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+<link rel="stylesheet" href="bower_components/nvd3/nv.d3.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 
@@ -30,7 +36,7 @@
         Welcome, <a href class="headerlink"="#">{{ header.current_user.email }}</a> </h1>
   </header>
   </nav>
- 
+
   <%= yield %>
    <div ng-view>
 </div>
