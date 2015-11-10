@@ -93,6 +93,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     { templateUrl: '/angular_templates/moods.html',   ///SHOW ONE PAGE
         controller:  'MoodController',
         controllerAs: 'mood'
+    }).when('/form',
+      { templateUrl: '/angular_templates/form.html',   ///SHOW ONE PAGE
+        controller:  'MoodController',
+        controllerAs: 'mood'
     }).when('/moods/:id',
       { templateUrl: '/angular_templates/show.html',   ///SHOW ONE PAGE
         controller:  'MoodController',

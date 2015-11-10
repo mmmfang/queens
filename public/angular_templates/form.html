@@ -1,9 +1,12 @@
-<div ng-controller="MoodController as mood">
+<div ng-controller="MoodController as mood"
+     id = "mood-form">
 
 <!-- EMOJI FORM -->
 <form ng-submit="mood.createMood()">
   <div id="emotions">
-    Pick an emoji that best represents your mood:
+    <span id = "pick">
+      Pick an emoji that best represents your mood:
+    </span>
     <br/>
     <br/>
 
@@ -16,7 +19,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood one"
            for="one">
-      <%= image_tag "1.png" %>
+        <img src="assets/1.png"/>
     </label>
 
 
@@ -29,7 +32,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood two"
            for="two">
-      <%= image_tag "2.png" %>
+      <img src="assets/2.png"/>
     </label>
 
 
@@ -42,7 +45,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood three"
            for="three">
-      <%= image_tag "3.png" %>
+      <img src="assets/3.png"/>
     </label>
 
 <!-- four -->
@@ -54,7 +57,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood four"
            for="four">
-      <%= image_tag "4.png" %>
+      <img src="assets/4.png"/>
     </label>
 
 
@@ -67,7 +70,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood five"
            for="five">
-      <%= image_tag "5.png" %>
+      <img src="assets/5.png"/>
     </label>
 
 
@@ -80,7 +83,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood six"
            for="six">
-      <%= image_tag "6.png" %>
+      <img src="assets/6.png"/>
     </label>
 
 
@@ -93,7 +96,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood seven"
            for="seven">
-      <%= image_tag "7.png" %>
+      <img src="assets/7.png"/>
     </label>
 
 
@@ -106,7 +109,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood eight"
            for="eight">
-      <%= image_tag "8.png" %>
+      <img src="assets/8.png"/>
     </label>
 
 
@@ -119,7 +122,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood nine"
            for="nine">
-      <%= image_tag "9.png" %>
+      <img src="assets/9.png"/>
     </label>
 
 
@@ -133,7 +136,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood ten"
            for="ten">
-      <%= image_tag "10.png" %>
+      <img src="assets/10.png"/>
 
     </label>
     <br/>
@@ -151,7 +154,9 @@
     Why are you feeling upset?<br/><br/>
 
     <textarea type="text"
-              ng-model="mood.factorsBlurb">
+              ng-model="mood.factorsBlurb"
+              rows="5"
+              id="blurb">
     </textarea>
 
   </div>
@@ -164,7 +169,10 @@
 
     How could your day be better?<br/><br/>
 
-    <textarea type="text" ng-model="mood.factorsBlurb">
+    <textarea type="text"
+              ng-model="mood.factorsBlurb"
+              rows="5"
+              id="blurb">
     </textarea>
 
   </div>
@@ -178,7 +186,10 @@
 
     Why was your day so awesome?<br/><br/>
 
-    <textarea type="text" ng-model="mood.factorsBlurb">
+    <textarea type="text"
+              ng-model="mood.factorsBlurb"
+              rows="5"
+              id="blurb">
     </textarea>
 
   </div>
@@ -188,7 +199,8 @@
   <input ng-show="!!mood.happiness &&
                   mood.factorsBlurb.length > 0"
          type="submit"
-         value="Submit Your Mood">
+         value="Submit Your Mood"
+         id = "moodsubmit">
 </form>
 </div>
 <!-- END OF FORMS -->
