@@ -29,7 +29,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-
+body {
+  background: #FFFBEA;
+}
 
 /* LOGIN ACCEPTED STYLING */
 div.flash {
@@ -93,6 +95,7 @@ header {
 .mood img {
   height: 75px;
   width: 75px;
+  background: none;
 }
 
 .emotions input:active +.mood{
@@ -130,7 +133,6 @@ input[type='radio'].mood-select:checked + label {
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
     -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
     filter: brightness(1.2) grayscale(.5) opacity(.9);
-
 }
 
 input[type=radio] {
@@ -177,7 +179,7 @@ input[type=radio] {
 
 
 /* STYLING OF MOOD & FACTORS POSTS*/
-#moodpost {
+#emoji {
   margin-bottom: 20px;
   border: 1px solid #6dd4b1;
   border-radius: 5px;
