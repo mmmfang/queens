@@ -4,6 +4,7 @@
 var app = angular.module('moodApp', ['ngRoute']);
 
 
+
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
 ////////////////////////////////////////
@@ -75,6 +76,8 @@ app.controller('MoodController', ['$http', function($http){
       controller.getMood();
     });
   };
+
+
 }]);
 
 
@@ -104,10 +107,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
  }]) ;
 
 /// file upload info ///
-
 angular
-   .module('app', ['angularFileUpload'])
-   .controller('AppController', function($scope, FileUploader) {
-       $scope.uploader = new FileUploader({url: '<your controller path>'});
-   });
-   
+    .module('FileUploader', ['angularFileUpload'])
+    .controller('fileCtrl', function($scope, FileUploader) {
+        $scope.uploader = new FileUploader();
+    });
