@@ -1,3 +1,4 @@
+<div id = "showall">
 <div id="emoji"
      ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'"
      ng-style="m.happiness==1 && {'background-color':  '#80CCFF'} ||
@@ -82,4 +83,5 @@
       <span ng-repeat="factor in m.factors">
         <h4>"{{factor.blurb}}"</h4>
       </span>
+</div>
 </div>

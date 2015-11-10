@@ -32,8 +32,7 @@
 
 body {
   background: #FFFBEA;
-  margin-left: 50px !important;
-  margin-right: 50px !important;
+  margin-top: 25px;
 }
 
 /* LOGIN ACCEPTED STYLING */
@@ -202,4 +201,8 @@ input[type=radio] {
 
 #date {
   font-family: 'Open Sans', sans-serif;
+}
+
+#showall {
+  margin-left: 13%;
 }
