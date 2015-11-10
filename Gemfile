@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -39,6 +39,9 @@ gem "bower-rails", "~> 0.10.0"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#puma will be web server
+gem 'puma' 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -54,3 +57,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem 'rails_12factor', group: :production
