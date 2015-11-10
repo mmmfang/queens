@@ -81,7 +81,7 @@ app.controller('MoodController', ['$http', function($http){
 
 //TESTING THE ROUTE CONTOLLER - Just put it in here for testing
 
-app.config([‘$routeProvider’, ‘$locationProvider’, function($routeProvider, $locationProvider) {
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({enabled:true});
 
   $routeProvider
@@ -102,5 +102,6 @@ app.config([‘$routeProvider’, ‘$locationProvider’, function($routeProvid
         controller:  'ChartController',
         controllerAs: 'chart'
     }).otherwise(
-      { redirectTo: '/' });
-});
+      { redirectTo: '/' 
+    });
+ }]) ;

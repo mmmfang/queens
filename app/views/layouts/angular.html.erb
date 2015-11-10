@@ -8,6 +8,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 
+  <base href="/"> </base>
+
 </head>
 <body>
 
@@ -21,9 +23,9 @@
         <!-- new mood post -->
         <a href class="headerlink"="#">POST YOUR MOOD</a> |
         <!-- see all mood posts -->
-        <a href class="headerlink"="#">SEE YOUR MOODS</a> |
+        <a href="/moods" class="headerlink"="#">SEE YOUR MOODS</a> |
         <!-- D3 Mood Chart -->
-        <a href class="headerlink"="#">MOOD CHART</a> |
+        <a href="/charts" class="headerlink"="#">MOOD CHART</a> |
         <!-- user page -->
         Welcome, <a href class="headerlink"="#">{{ header.current_user.email }}</a> </h1>
   </header>
