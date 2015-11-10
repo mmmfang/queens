@@ -30,6 +30,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 
 gem "paperclip", "~> 4.2"
+
+gem 'carrierwave'
+# angular file upload gem:
+gem 'angularjs-file-upload-rails', '~> 1.1.6'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

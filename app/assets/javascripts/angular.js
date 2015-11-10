@@ -99,8 +99,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         controller:  'HeaderController',
         controllerAs: 'header'
     }).otherwise(
-      { redirectTo: '/' 
+      { redirectTo: '/'
     });
  }]) ;
 
+/// file upload info ///
 
+angular
+   .module('app', ['angularFileUpload'])
+   .controller('AppController', function($scope, FileUploader) {
+       $scope.uploader = new FileUploader({url: '<your controller path>'});
+   });
+   
