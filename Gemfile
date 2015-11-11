@@ -35,7 +35,6 @@ gem 'carrierwave'
 # angular file upload gem:
 gem 'angularjs-file-upload-rails', '~> 1.1.6'
 
-gem "bower-rails", "~> 0.10.0"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
