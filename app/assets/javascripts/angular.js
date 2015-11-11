@@ -3,7 +3,16 @@
 ////////////////////////////////////////
 var app = angular.module('moodApp', ['ngRoute']);
 
-
+// factory to produce specific ID for show individual posts
+app.factory('MoodPost', ['$resource', function($resource){
+  return $resource('action/to/get/:mood_id.json', {}, {
+    query: {
+      method: 'GET',
+      params: { mood_id: 'all' },
+      isArray: true
+    }
+  });
+}]);
 
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
@@ -21,7 +30,7 @@ app.controller('HeaderController', ['$http', function($http){
 ////////////////////////////////////////
 /////////// MOOD CONTROLLER ////////////
 ////////////////////////////////////////
-app.controller('MoodController', ['$http', function($http){
+app.controller('MoodController', ['$http', '$scope', '$routeParams', 'MoodPost', function($http, $scope, $routeParams, MoodPost){
 
   // authenticity token
   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -77,7 +86,12 @@ app.controller('MoodController', ['$http', function($http){
     });
   };
 
+  // grabbing the ID from the post for a show individual page
+  $scope.post = MoodPost.get({
+    mood_id: $routeParams.mood_id
+  });
 
+  $scope.moodPosts = MoodPost.query();
 }]);
 
 
@@ -114,19 +128,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
  }]) ;
 
-// weather api
-app.controller('WeatherCtrl', ['$http', '$routeParams', function ($http, $routeParams){
-    this.id = $routeParams.id;
-    console.log(this.id);
-    var query = 'http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=eaf6fe412d32917ff999cc01f8b23979';
-    var controller = this;
-
-// eaf6fe412d32917ff999cc01f8b23979
-
-    $http.get(query).then(
-      function(data) {
-        console.log(data);
-        controller.weather = data;
-      }
-    );
-}]);
+/// file upload info ///
+angular
+    .module('FileUploader', ['angularFileUpload'])
+    .controller('fileCtrl', function($scope, FileUploader) {
+        $scope.uploader = new FileUploader();
+    });
