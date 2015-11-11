@@ -81,7 +81,6 @@ app.controller('MoodController', ['$http', function($http){
 }]);
 
 
-
 ////////////////////////////////////////
 /////////// ROUTE CONTROLLER ///////////
 ////////////////////////////////////////
@@ -89,18 +88,23 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $locationProvider.html5Mode({enabled:true});
 
   $routeProvider.
+    // SHOW ALL MOODS
     when('/moods',
-    { templateUrl: '/angular_templates/moods.html',   ///SHOW ONE PAGE
+    { templateUrl: '/angular_templates/moods.html',
         controller:  'MoodController',
         controllerAs: 'mood'
+    // FORM PAGE
     }).when('/form',
-      { templateUrl: '/angular_templates/form.html',   ///SHOW ONE PAGE
+      { templateUrl: '/angular_templates/form.html',
         controller:  'MoodController',
         controllerAs: 'mood'
-    }).when('/moods/:id',
-      { templateUrl: '/angular_templates/show.html',   ///SHOW ONE PAGE
-        controller:  'MoodController',
-        controllerAs: 'mood'
+    // SHOW ONE MOOD
+  }).when('/moods/:mood_id',
+      { controller:  'MoodController',
+        controllerAs: 'mood',
+        templateUrl: '/angular_templates/show.html'
+
+    // USER PROFILE PAGE
     }).when('/users/:id',
       { templateUrl: '/angular_templates/user.html',   ///SHOW ONE PAGE
         controller:  'HeaderController',

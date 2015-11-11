@@ -14,7 +14,7 @@
 
 
      <!-- POST DATE -->
-     <span>Posted: {{m.created_at | date:'MM/dd/yyyy @ h:mma'}}</span>
+     <span>Posted: <a ng-href="/moods/{{m.id}}">{{m.created_at | date:'MM/dd/yyyy @ h:mma'}}</a></span>
 
 
      <!-- EMOJIS -->
