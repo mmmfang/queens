@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params) 
 
-    # file upload stuff
-  other params
-  user.picture = params[:file]
-  user.save
 
     if @user.save
       flash[:message] = "Successfully created..."
