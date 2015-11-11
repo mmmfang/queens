@@ -3,17 +3,6 @@
 ////////////////////////////////////////
 var app = angular.module('moodApp', ['ngRoute']);
 
-// factory to produce specific ID for show individual posts
-app.factory('MoodPost', ['$resource', function($resource){
-  return $resource('action/to/get/:mood_id.json', {}, {
-    query: {
-      method: 'GET',
-      params: { mood_id: 'all' },
-      isArray: true
-    }
-  });
-}]);
-
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
 ////////////////////////////////////////
@@ -30,7 +19,7 @@ app.controller('HeaderController', ['$http', function($http){
 ////////////////////////////////////////
 /////////// MOOD CONTROLLER ////////////
 ////////////////////////////////////////
-app.controller('MoodController', ['$http', '$scope', '$routeParams', 'MoodPost', function($http, $scope, $routeParams, MoodPost){
+app.controller('MoodController', ['$http', function($http){
 
   // authenticity token
   var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -85,13 +74,6 @@ app.controller('MoodController', ['$http', '$scope', '$routeParams', 'MoodPost',
       controller.getMood();
     });
   };
-
-  // grabbing the ID from the post for a show individual page
-  $scope.post = MoodPost.get({
-    mood_id: $routeParams.mood_id
-  });
-
-  $scope.moodPosts = MoodPost.query();
 }]);
 
 
