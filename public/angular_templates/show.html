@@ -1,108 +1,74 @@
-<div id="emoji"
-     ng-repeat="m in mood.current_user_moods |
-                orderBy: '-created_at'">
+
+<div id="emoji">
 
 
-  <!-- POST DATE -->
-  <span id = "date">
-
-    {{m.created_at | date:'MM/dd/yyyy @ h:mma'}}
-
-  </span>
-
-  <br/>
-
-  <br/>
+<div ng-repeat="m in mood.current_user_moods ">
+  
+   
+        {{mood.current_user_moods}}
+    
+</div>
 
 
-
-  <!-- EMOJIS -->
-  <!-- one -->
-  <span ng-show="m.happiness==1"
-
-              class="emojishow">
-
-
-    <img
-     src="assets/1.png"/>
-
-  </span>
-
-  <!-- two -->
-  <span ng-show="m.happiness==2"
-        class="emojishow">
+<!-- {{mood.current_user_moods}}
+ -->
 
 
 
-    <img src="assets/2.png"/>
+     <span ng-show="m.happiness==1">
+           class="emojishow">
+        <img src="assets/1.png"/>
+     </span>
 
-  </span>
+     <span ng-show="m.happiness==2"
+           class="emojishow">
+       <img src="assets/2.png"/>
+     </span>
 
-  <!-- three -->
-  <span ng-show="m.happiness==3"
-        class="emojishow">
+      <span ng-show="m.happiness==3"
+            class="emojishow">
+        <img src="assets/3.png"/>
+      </span>
 
-    <img src="assets/3.png"/>
+      <span ng-show="m.happiness==4"
+            class="emojishow">
+        <img src="assets/4.png"/>
+      </span>
 
-  </span>
+      <span ng-show="m.happiness==5"
+            class="emojishow">
+        <img src="assets/5.png"/>
+      </span>
 
-  <!-- four -->
-  <span ng-show="m.happiness==4"
-        class="emojishow">
+      <span ng-show="m.happiness==6"
+            class="emojishow">
+        <img src="assets/6.png"/>
+      </span>
 
-    <img src="assets/4.png"/>
-
-  </span>
-
-  <!-- five -->
-  <span ng-show="m.happiness==5" class="emojishow">
-    <img src="assets/5.png"/>
-  </span>
-
-  <!-- six -->
-  <span ng-show="m.happiness==6"
-        class="emojishow">
-
-    <img src="assets/6.png"/>
-
-  </span>
-
-  <!-- seven -->
-  <span ng-show="m.happiness==7"
-        class="emojishow">
-
-    <img src="assets/7.png"/>
-
-  </span>
-
-  <!-- eight -->
-  <span ng-show="m.happiness==8"
-        class="emojishow">
-
-    <img src="assets/8.png"/>
-
-  </span>
-
-  <!-- nine -->
-  <span ng-show="m.happiness==9"
-        class="emojishow">
-
-    <img src="assets/9.png"/>
-
-  </span>
-
-  <!-- ten -->
-  <span ng-show="m.happiness==10"
-        class="emojishow">
-
-    <img src="assets/10.png"/>
-
-  </span>
+      <span ng-show="m.happiness==7"
+            class="emojishow">
+        <img src="assets/7.png"/>
+      </span>
 
 
-  <!-- FACTORS -->
-  <span ng-repeat="factor in m.factors">
+      <span ng-show="m.happiness==8"
+            class="emojishow">
+        <img src="assets/8.png"/>
+      </span>
 
-    <h4>"{{factor.blurb}}"</h4>
 
-  </span>
+      <span ng-show="m.happiness==9"
+            class="emojishow">
+        <img src="assets/9.png"/>
+      </span>
+
+
+      <span ng-show="m.happiness==10"
+            class="emojishow">
+        <img src="assets/10.png"/>
+      </span>
+
+
+
+</div>
+
