@@ -9,7 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  
+
 
   <base href="/"> </base>
 
@@ -34,7 +34,11 @@
   </header>
   </nav>
 
+  <div ng-controller="WeatherCtrl as weather">
+    {{weather.data}}
+  </div>
 
+<d3Graph></d3Graph>
      <%= yield %>
 
    <div ng-view>
@@ -44,6 +48,8 @@
 
 
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'graph', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'weather', 'data-turbolinks-track' => true %>
 
 </body>
 </html>

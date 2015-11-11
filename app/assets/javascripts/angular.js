@@ -110,9 +110,25 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
  }]) ;
 
-/// file upload info ///
-angular
-    .module('FileUploader', ['angularFileUpload'])
-    .controller('fileCtrl', function($scope, FileUploader) {
-        $scope.uploader = new FileUploader();
-    });
+
+
+///weather apivar weatherApp = angular.module('weatherApp', ['ngRoute']);
+
+
+app.controller('WeatherCtrl', ['$http', '$routeParams', function ($http, $routeParams){
+    this.id = $routeParams.id;
+    console.log(this.id);
+    var query = 'http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=eaf6fe412d32917ff999cc01f8b23979';
+    var controller = this;
+
+// eaf6fe412d32917ff999cc01f8b23979
+
+    $http.get(query).then(
+      function(data) {
+        console.log(data);
+        controller.weather = data;
+      }
+    );
+}]);
+
+// d3 directive
