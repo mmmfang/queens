@@ -90,19 +90,19 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $routeProvider.
     // SHOW ALL MOODS
     when('/moods',
-    { templateUrl: '/angular_templates/moods.html',
+    { templateUrl: '/angular_templates/moods.html.erb',
         controller:  'MoodController',
         controllerAs: 'mood'
     // FORM PAGE
     }).when('/form',
-      { templateUrl: '/angular_templates/form.html',
+      { templateUrl: '/angular_templates/form.html.erb',
         controller:  'MoodController',
         controllerAs: 'mood'
     // SHOW ONE MOOD
   }).when('/moods/:mood_id',
       { controller:  'MoodController',
         controllerAs: 'mood',
-        templateUrl: '/angular_templates/show.html'
+        templateUrl: '/angular_templates/show.html.erb'
 
     // USER PROFILE PAGE
     }).when('/users/:id',
