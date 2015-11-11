@@ -43,7 +43,10 @@
   <%= yield %>
    <div ng-view>
 </div>
-
+<!--weather api test location  -->
+<div ng-controller="WeatherCtrl as weather">
+   {{weather.data}}
+ </div>
 
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
 
