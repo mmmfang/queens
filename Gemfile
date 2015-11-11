@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -35,12 +35,11 @@ gem 'carrierwave'
 # angular file upload gem:
 gem 'angularjs-file-upload-rails', '~> 1.1.6'
 
-gem "bower-rails", "~> 0.10.0"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
 #puma will be web server
-gem 'puma' 
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
