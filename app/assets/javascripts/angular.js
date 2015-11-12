@@ -76,13 +76,34 @@ app.controller('MoodController', ['$http', function($http){
     });
   };
 
+  // edit mood -- NOT TESTED
+  // this.editMood = function(mood) {
+  //   $http.patch('/moods/'+ mood.id, {
+  //     mood: {
+  //       happiness: mood.happiness,
+  //       factors: mood.factorsBlurb
+  //     }
+  //   }).success(function(data){
+  //     controller.getMood();
+  //   });
+  // };
+
   // delete the mood
-  this.deleteMood = function(mood) {
-  var index = controller.current_user_moods.indexOf(mood);
-  controller.current_user_moods.splice(index, 1);
+  this.deleteMood = function(mood){
+    var index = controller.current_user_moods.indexOf(mood);
+    controller.current_user_moods.splice(index, 1);
+    console.log(mood.id);
+
+    $http.delete('/moods/' + mood.id, {
+      authenticity_token: authenticity_token
+    }).success(function (data){
+      console.log("SUCCESS");
+    }).error(function(data, err){
+      console.log("ERROR");
+    });
+    controller.getMood();
   };
 
-  controller.getMood();
 
 }]);
 
