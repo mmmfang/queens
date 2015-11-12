@@ -130,7 +130,7 @@ return parseFloat((kelvin) - 273.15);
  });
 
 // weather api
-app.controller('WeatherCtrl', ['$http', '$routeParams', function ($http, $routeParams){
+app.controller('WeatherCtrl', ['$http', '$routeParams', 'kelvinToFar', 'kelvinToCelsius',function ($http, $routeParams, kelvinToFar, kelvinToCelsius){
     this.getWeather = function () {
     var query = 'http://api.openweathermap.org/data/2.5/weather?q='+this.city+'&APPID=eaf6fe412d32917ff999cc01f8b23979';
     var ctrl = this;
