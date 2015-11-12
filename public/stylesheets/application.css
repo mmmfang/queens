@@ -1,0 +1,280 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+/* IMPORTING GOOGLE FONTS */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+@import url(https://fonts.googleapis.com/css?family=Abel);
+
+@import 'bower_component_name/stylesheet'
+
+/* GENERAL STYLING FOR EVERY PAGE */
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/*Login Page Stylin*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.entry {
+  /*background-color: #FFFBEA;*/
+
+}
+
+.sensus {
+    margin-top: 40px;
+    color: #6dd4b1;
+    /*position: fixed;*/
+    text-align: center;
+    font-family: 'Abel', sans-serif !important;
+    font-size: 48px !important;
+    text-align: center !important;;
+    padding: 30px;
+    -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 4s; /* Firefox < 16 */
+        -ms-animation: fadein 4s; /* Internet Explorer */
+         -o-animation: fadein 4s; /* Opera < 12.1 */
+            animation: fadein 4s;
+}
+
+#rainbow {
+ margin-top: 25px;
+ font-size: 21px;
+ text-align: center;
+ -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 4s; /* Firefox < 16 */
+     -ms-animation: fadein 4s; /* Internet Explorer */
+      -o-animation: fadein 4s; /* Opera < 12.1 */
+         animation: fadein 4s;
+}
+
+@keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+ from { opacity: 0; }
+ to   { opacity: 1; }
+}
+
+.welcome {
+  text-align: center;
+
+}
+
+.form {
+  text-align: center;
+}
+
+h4.welcome {
+  font-weight: lighter;
+  color: #6dd4b1;
+}
+
+.front {
+  /*border-bottom: 1px solid gray;*/
+}
+
+
+
+body {
+  background: #FFFBEA;
+}
+
+/* LOGIN ACCEPTED STYLING */
+div.flash {
+  border: 1px solid steelblue;
+  border-radius: 15px;
+  padding: 1rem;
+  background: rgb(184, 253, 255);
+}
+
+
+
+/* HEADER AND NAV */
+header {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Abel', sans-serif !important;
+  font-size: 48px !important;
+  text-align: center !important;;
+}
+
+.headerlink {
+  font-family: 'Abel', sans-serif !important;
+  text-decoration: none;
+  color: #6dd4b1;
+  transition: all 0.2s linear;
+  border-bottom: 3px solid transparent;
+  transition: 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.headerlink:hover, .headerlink:focus {
+  color: #357099;
+  border-bottom: 3px #357099;
+  transition: 0.2s ease-in;
+}
+
+.navbar {
+  font-family: 'Abel', sans-serif;
+  margin-bottom: 1em;
+}
+
+
+
+/* EMOJI MENU */
+#mood-form {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.emotions input{
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.mood img {
+  height: 75px;
+  width: 75px;
+  background: none;
+}
+
+.emotions input:active +.mood{
+  opacity: .9;
+}
+
+.emotions input:checked +.mood{
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+
+.mood{
+  cursor: pointer;
+  background-size:contain;
+  background-repeat:no-repeat;
+  height: 75px;
+  width: 75px;
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+  -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+  filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.mood:hover {
+  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+input[type='radio'].mood-select:checked + label {
+
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+input[type=radio] {
+    visibility:hidden;
+}
+
+.emojiWrap {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+
+/* FACTORS MENU */
+#blurb {
+    width: 400px;
+    border: 1px solid #6dd4b1;
+    border-radius: 5px;
+    font-size: 18px;
+    font: 'Open Sans', sans-serif;
+}
+
+/* SUBMIT BUTTON */
+#moodsubmit {
+  border-radius: 5px;
+  border: 0;
+  width: 200px !important;
+  height: 45px !important;
+  font-family: 'Abel', sans-serif !important;
+  font: 24px white;
+  background: #6dd4b1;
+}
+
+
+
+/* STYLING OF EMOJIS THROUGHOUT */
+.emojishow img {
+  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+  filter: brightness(1.2) grayscale(.5) opacity(.9);
+  height: 75px !important;
+  width: 75px !important;
+}
+
+
+
+/* STYLING OF MOOD & FACTORS POSTS*/
+#emoji {
+  margin-bottom: 20px;
+  border: 1px solid #6dd4b1;
+  border-radius: 5px;
+  height: 250px;
+  width: 250px;
+  text-align: center;
+  padding-top: 1em;
+  display: inline-block;
+  margin-right: 10px;
+}
