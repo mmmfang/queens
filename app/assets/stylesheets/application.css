@@ -29,6 +29,46 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+/*Login Page Stylin*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.sensus {
+    margin-top: 40px !important;
+    color: #6dd4b1;
+    /*position: fixed;*/
+    text-align: center;
+    font-family: 'Abel', sans-serif !important;
+    font-size: 48px !important;
+    text-align: center !important;;
+
+    /*top: 20px;*/
+    padding: 30px;
+}
+
+.welcome {
+  text-align: center;
+
+}
+
+.form {
+  text-align: center;
+}
+
+h4.welcome {
+  font-weight: lighter;
+  color: #6dd4b1;
+}
+
+.front {
+  border-bottom: 1px solid black
+}
+
+
+
 body {
   background: #FFFBEA;
 }

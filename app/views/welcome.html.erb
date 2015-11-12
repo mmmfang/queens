@@ -6,51 +6,59 @@
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <body>
 
-  <nav>
+  <nav class="front">
   <header ng-controller="HeaderController as header">
     <span>
       <h1>
         <!-- logo -->
-        <span class="logo">S E N S U S</span>
+        <span class="sensus">S E N S U S</span>
         <br/>
+        <div id="logo">
+          <%= image_tag "logo.png" %>
+        </div>
         <!-- new mood post -->
-        <a href class="headerlink"="#">POST YOUR MOOD</a> |
+        <!-- <a href class="headerlink"="#">POST YOUR MOOD</a> | -->
         <!-- see all mood posts -->
-        <a href class="headerlink"="#">SEE YOUR MOODS</a> |
+        <!-- <a href class="headerlink"="#">SEE YOUR MOODS</a> | -->
         <!-- D3 Mood Chart -->
-        <a href class="headerlink"="#">MOOD CHART</a>
+        <!-- <a href class="headerlink"="#">MOOD CHART</a> -->
+
   </header>
   </nav>
 
   <%= yield %>
 
-  <h3>Sign up to get started!</h3>
+  <h4 class="welcome">Sign up to get started!</h4>
 
-  <form action="<%= users_path %>" method="POST"
+  <form class="form" action="<%= users_path %>" method="POST"
       autocomplete="false">
     <input type="hidden" name="authenticity_token"
       value="<%= form_authenticity_token %>">
 
     <input type="email" name="user[email]"
-      placeholder="your email address"><br/>
+      placeholder="your email address">
     <input type="password" name="user[password]"
       placeholder="your password"><br/>
-    <input type="submit" value="Sign up">
+      <br>
+       <button type="submit" class="btn btn-default">Sign up</button>
+    <!-- <input type="submit" value="Sign up"> -->
   </form>
 
-  <h3>Sign in if you have an account</h3>
+  <h4 class="welcome">Sign in if you have an account</h4>
 
-  <form action="<%= session_path %>" method="POST">
+  <form class="form" action="<%= session_path %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="email" name="user[email]" placeholder="your email">
     <input type="password" name="user[password]" placeholder="your password">
-
-    <input type="submit" value="Sign in!">
-
+    <br>
+    <!-- <input type="submit" value="Sign in!"> -->
+    <br>
+     <button type="submit" class="btn btn-default">Sign in</button>
   </form>
 
 
