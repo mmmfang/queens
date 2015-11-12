@@ -58,7 +58,7 @@ app.controller('MoodController', ['$http', function($http){
       var mood = moodData.mood;
 
       // post the factors
-      $http.post('/moods/' + mood.id + "/factors", {
+      $http.post('/moods/' + mood.id + '/factors', {
         authenticity_token: authenticity_token,
         factor: {
           blurb: controller.factorsBlurb
@@ -76,6 +76,16 @@ app.controller('MoodController', ['$http', function($http){
       controller.getMood();
     });
   };
+
+    // delete the mood
+  this.deleteMood = function(mood) {
+  var index = controller.current_user_moods.indexOf(mood);
+  controller.current_user_moods.splice(index, 1);
+  };
+
+  controller.getMood();
+ 
+ }]);
 
 
 }]);
