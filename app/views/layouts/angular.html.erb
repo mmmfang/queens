@@ -10,7 +10,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+
 
 
   <base href="/"> </base>
@@ -37,11 +39,42 @@
   </header>
   </nav>
 
+<!--
+  <div ng-controller="WeatherCtrl as ctrl">
+    <input type="text"
+            placeholder="enter your city"
+            ng-model='ctrl.city'
+            ng-submit="ctrl.getWeather()" /> <br>
+     <button ng-click="ctrl.getWeather()">Get Weather</button>
+         <h4>Current Weather For: {{ctrl.weather.name}}</h4>
+           <p>Description: {{ctrl.weather.weather[0].description}}</p>
+        <p>Temp:  {{ctrl.weather.main.temp}} &deg; F</p>
+         <p>Humidity: {{ctrl.weather.main.humidity}} %</p>
+         <p>Pressure: {{ctrl.weather.main.pressure}} hpa </p>
+
+   </div>
+<div>
+  <bars-chart chart-data="myData" ></bars-chart>
+</div> -->
+
+
+     <%= yield %>
+
+   <div ng-view>
+
+  </div>
+
+
+
+
+
   <%= yield %>
    <div ng-view>
 </div>
 
+
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
+
 
 </body>
 </html>

@@ -4,7 +4,7 @@
   <title>Sensus</title>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -18,12 +18,16 @@
 
 <% if current_user %>
 <hr/>
-<form action="<%= session_path %>" method="POST">
-  <input type="hidden" name="authenticity_token"
-    value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Log Out!">
-</form>
+
+  <form action="<%= session_path %>" method="POST">
+    <input class="form-control" type="hidden" name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <br>
+    <!-- <input type="submit" value="Log Out!"> -->
+     <!-- <button type="submit" class="btn btn-default">Log out!</button> -->
+  </form>
+
 <% end %>
 </body>
 </html>
