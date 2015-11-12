@@ -1,0 +1,336 @@
+<div ng-controller="MoodController as mood"
+     id = "mood-form">
+
+<!-- EMOJI FORM -->
+<form ng-submit="mood.createMood()">
+  <div id="emotions">
+    <span id = "pick">
+      Pick an emoji that best represents your mood:
+    </span>
+    <br/>
+    <br/>
+
+<!-- SAD EMOTIONS -->
+    <input id="sad1"
+           class="mood-select"
+           type="radio"
+           value="1"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="sad1">
+      <img src="images/sad1.png"/>
+    </label>
+
+    <input id="sad2"
+           class="mood-select"
+           type="radio"
+           value="2"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="sad2">
+      <img src="images/sad2.png"/>
+    </label>
+
+    <input id="sad3"
+           class="mood-select"
+           type="radio"
+           value="3"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="sad3">
+      <img src="images/sad3.png"/>
+    </label>
+
+    <input id="sad4"
+           class="mood-select"
+           type="radio"
+           value="4"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="sad4">
+      <img src="images/sad4.png"/>
+    </label>
+
+    <input id="sad5"
+           class="mood-select"
+           type="radio"
+           value="5"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="sad5">
+      <img src="images/sad5.png"/>
+    </label>
+
+    <input id="sad6"
+           class="mood-select"
+           type="radio"
+           value="6"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="sad6">
+      <img src="images/sad6.png"/>
+    </label>
+
+
+
+<!-- ANGRY EMOTIONS -->
+    <input id="angry1"
+           class="mood-select"
+           type="radio"
+           value="7"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="angry1">
+      <img src="images/angry1.png"/>
+    </label>
+
+    <input id="angry2"
+           class="mood-select"
+           type="radio"
+           value="8"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="angry2">
+      <img src="images/angry2.png"/>
+    </label>
+
+
+<!-- NEUTRAL EMOTIONS -->
+    <input id="neutral1"
+           class="mood-select"
+           type="radio"
+           value="9"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="neutral1">
+      <img src="images/neutral1.png"/>
+    </label>
+
+    <input id="neutral2"
+           class="mood-select"
+           type="radio"
+           value="10"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="neutra2l">
+      <img src="images/neutral2.png"/>
+    </label>
+
+    <input id="neutral3"
+           class="mood-select"
+           type="radio"
+           value="11"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="neutral3">
+      <img src="images/neutral3.png"/>
+    </label>
+
+    <input id="neutral4"
+           class="mood-select"
+           type="radio"
+           value="12"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="neutral4">
+      <img src="images/neutral4.png"/>
+    </label>
+
+
+<!-- HAPPY EMOTIONS -->
+    <input id="happy1"
+           class="mood-select"
+           type="radio"
+           value="13"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="happy1">
+      <img src="images/happy1.png"/>
+    </label>
+
+    <input id="happy2"
+           class="mood-select"
+           type="radio"
+           value="14"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="happy2">
+      <img src="images/happy3.png"/>
+    </label>
+
+    <input id="happy3"
+           class="mood-select"
+           type="radio"
+           value="15"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="happy3">
+      <img src="images/happy4.png"/>
+    </label>
+
+    <input id="happy4"
+           class="mood-select"
+           type="radio"
+           value="16"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="happy4">
+      <img src="images/happy5.png"/>
+    </label>
+
+    <input id="happy5"
+           class="mood-select"
+           type="radio"
+           value="17"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="happy5">
+      <img src="images/happy6.png"/>
+    </label>
+
+    <input id="happy6"
+           class="mood-select"
+           type="radio"
+           value="18"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="happy6">
+      <img src="images/happy7.png"/>
+    </label>
+
+    <input id="happy7"
+           class="mood-select"
+           type="radio"
+           value="19"
+           name="mood"
+           ng-model = "mood.happiness"/>
+    <label class="mood"
+           for="happy7">
+      <img src="images/happy8.png"/>
+    </label>
+
+
+
+
+    <br/>
+    <br/>
+</div>
+<!-- END OF EMOJI FORM -->
+
+<!-- FACTORS FORM -->
+
+  <!-- Sad Emotions -->
+  <div ng-show="mood.happiness == 1 ||
+                mood.happiness == 2 ||
+                mood.happiness == 3 ||
+                mood.happiness == 4 ||
+                mood.happiness == 5 ||
+                mood.happiness == 6">
+
+    Why are you feeling upset?<br/><br/>
+
+    <textarea type="text"
+              ng-model="mood.factorsBlurb"
+              rows="5"
+              id="blurb">
+    </textarea>
+
+  </div>
+
+
+<!-- ANGRY EMOTIONS -->
+  <div ng-show="mood.happiness == 7 ||
+                mood.happiness == 8">
+
+    Why are you angry?<br/><br/>
+
+    <textarea type="text"
+              ng-model="mood.factorsBlurb"
+              rows="5"
+              id="blurb">
+    </textarea>
+  </div>
+
+<!-- NEUTRAL EMOTIONS -->
+  <div ng-show="mood.happiness == 9 ||
+                mood.happiness == 10 ||
+                mood.happiness == 11 ||
+                mood.happiness == 12">
+
+    How could your day be better?<br/><br/>
+
+    <textarea type="text"
+              ng-model="mood.factorsBlurb"
+              rows="5"
+              id="blurb">
+    </textarea>
+  </div>
+
+<!-- HAPPY EMOTIONS -->
+    <div ng-show="mood.happiness == 13 ||
+                  mood.happiness == 14 ||
+                  mood.happiness == 15 ||
+                  mood.happiness == 16 ||
+                  mood.happiness == 17 ||
+                  mood.happiness == 18 ||
+                  mood.happiness == 19">
+
+      What made your day awesome?<br/><br/>
+
+      <textarea type="text"
+                ng-model="mood.factorsBlurb"
+                rows="5"
+                id="blurb">
+      </textarea>
+    </div>
+      <input ng-show="!!mood.happiness &&
+                      mood.factorsBlurb.length > 0"
+             type="submit"
+             value="Submit Your Mood"
+             id = "moodsubmit">
+    </form>
+
+  </div>
+
+
+
+
+
+<!-- END OF FACTORS FORM -->
+
+<!-- END OF FORMS -->
+
+<!-- Weather API Area -->
+
+ <div ng-controller="WeatherCtrl as ctrl">
+    <input type="text"
+            placeholder="enter your city"
+            ng-model='ctrl.city'
+            ng-submit="ctrl.getWeather()" /> <br>
+     <button ng-click="ctrl.getWeather()">Get Weather</button>
+         <h4>Current Weather For: {{ctrl.weather.name}}</h4>
+            <p>Description: {{ctrl.weather.weather[0].description}}</p>
+            <p>Temp:  {{ctrl.weather.main.temp}} &deg; F</p>
+            <p>Humidity: {{ctrl.weather.main.humidity}} %</p>
+            <p>Pressure: {{ctrl.weather.main.pressure}} hpa </p>
+
+   </div>
+

@@ -1,0 +1,133 @@
+<div ng-controller="MoodController as mood">
+<div id = "showall">
+<div id="emoji"
+     ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'"
+     ng-style="m.happiness==1 && {'background-color':  '#80CCFF'} ||
+               m.happiness==2 && {'background-color':  '#00E5E6'} ||
+               m.happiness==3 && {'background-color':  '#FF5050'} ||
+               m.happiness==4 && {'background-color':  '#33CC33'} ||
+               m.happiness==5 && {'background-color':  '#6dd4b1'} ||
+               m.happiness==6 && {'background-color':  '#CC33FF'} ||
+               m.happiness==7 && {'background-color':  '#FFFF66'} ||
+               m.happiness==8 && {'background-color':  '#FF3399'} ||
+               m.happiness==9 && {'background-color':  '#66FF99'} ||
+               m.happiness==10 && {'background-color':  '#FFCCFF'}">
+
+
+     <!-- POST DATE -->
+     <span>Posted: {{m.created_at | date:'MM/dd/yyyy @ h:mma'}}</span>
+
+
+     <!-- SAD EMOJIS -->
+     <span ng-show="m.happiness==1"
+           class="emojishow">
+        <img src="images/sad1.png"/>
+     </span>
+
+     <span ng-show="m.happiness==2"
+           class="emojishow">
+        <img src="images/sad2.png"/>
+     </span>
+
+     <span ng-show="m.happiness==3"
+           class="emojishow">
+        <img src="images/sad3.png"/>
+     </span>
+
+     <span ng-show="m.happiness==4"
+           class="emojishow">
+        <img src="images/sad4.png"/>
+     </span>
+
+     <span ng-show="m.happiness==5"
+           class="emojishow">
+        <img src="images/sad5.png"/>
+     </span>
+
+     <span ng-show="m.happiness==6"
+           class="emojishow">
+        <img src="images/sad6.png"/>
+     </span>
+
+     <!-- ANGRY EMOJIS -->
+     <span ng-show="m.happiness==7"
+           class="emojishow">
+        <img src="images/angry1.png"/>
+     </span>
+
+     <span ng-show="m.happiness==8"
+           class="emojishow">
+        <img src="images/angry2.png"/>
+     </span>
+
+     <!-- NEUTRAL EMOJIS -->
+     <span ng-show="m.happiness==9"
+           class="emojishow">
+        <img src="images/neutral1.png"/>
+     </span>
+
+     <span ng-show="m.happiness==10"
+           class="emojishow">
+        <img src="images/neutral2.png"/>
+     </span>
+
+     <span ng-show="m.happiness==11"
+           class="emojishow">
+        <img src="images/neutral3.png"/>
+     </span>
+
+     <span ng-show="m.happiness==12"
+           class="emojishow">
+        <img src="images/neutral4.png"/>
+     </span>
+
+     <!-- HAPPY EMOTIONS -->
+     <span ng-show="m.happiness==13"
+           class="emojishow">
+        <img src="images/happy1.png"/>
+     </span>
+
+     <span ng-show="m.happiness==14"
+           class="emojishow">
+        <img src="images/happy3.png"/>
+     </span>
+
+     <span ng-show="m.happiness==15"
+           class="emojishow">
+        <img src="images/happy4.png"/>
+     </span>
+
+     <span ng-show="m.happiness==16"
+           class="emojishow">
+        <img src="images/happy5.png"/>
+     </span>
+
+     <span ng-show="m.happiness==17"
+           class="emojishow">
+        <img src="images/happy6.png"/>
+     </span>
+
+     <span ng-show="m.happiness==18"
+           class="emojishow">
+        <img src="images/happy7.png"/>
+     </span>
+
+     <span ng-show="m.happiness==19"
+           class="emojishow">
+        <img src="images/happy8.png"/>
+     </span>
+
+
+      <!-- FACTORS -->
+ 
+    <span ng-repeat="factor in m.factors">
+        <h4>"{{factor.blurb}}"</h4>
+    </span>
+    <button type="button" id = "delete" ng-click="mood.deleteMood(m)">DELETE</button>
+    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      <br/>
+</div><br/>
+</div>
+
+</div>
+

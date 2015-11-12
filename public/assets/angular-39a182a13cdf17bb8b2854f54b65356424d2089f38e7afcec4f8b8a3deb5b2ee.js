@@ -4,6 +4,7 @@
 var app = angular.module('moodApp', ['ngRoute']);
 
 
+
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
 ////////////////////////////////////////
@@ -57,7 +58,7 @@ app.controller('MoodController', ['$http', function($http){
       var mood = moodData.mood;
 
       // post the factors
-      $http.post('/moods/' + mood.id + '/factors', {
+      $http.post('/moods/' + mood.id + "/factors", {
         authenticity_token: authenticity_token,
         factor: {
           blurb: controller.factorsBlurb
@@ -74,22 +75,6 @@ app.controller('MoodController', ['$http', function($http){
       controller.current_user_moods.push(mood);
       controller.getMood();
     });
-  };
-
-  // delete the mood
-  this.deleteMood = function(mood){
-    var index = controller.current_user_moods.indexOf(mood);
-    controller.current_user_moods.splice(index, 1);
-    console.log(mood.id);
-
-    $http.delete('/moods/' + mood.id, {
-      authenticity_token: authenticity_token
-    }).success(function (data){
-      console.log("SUCCESS");
-    }).error(function(data, err){
-      console.log("ERROR");
-    });
-    controller.getMood();
   };
 
 
@@ -114,10 +99,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         controller:  'MoodController',
         controllerAs: 'mood'
     // SHOW ONE MOOD
-  }).when('/moods/:id',
+  }).when('/moods/:mood_id',
       { controller:  'MoodController',
         controllerAs: 'mood',
-        templateUrl: '/angular_templates/moods.html.erb'
+        templateUrl: '/angular_templates/show.html.erb'
 
     // USER PROFILE PAGE
     }).when('/users/:id',
@@ -129,58 +114,19 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
  }]) ;
 
-
-<<<<<<< HEAD
-
-
- // custom filters to convert from Kelvin
- //  app.filter('kelvinToFar', function() {
- // return function(kelvin) {
- // return parseFloat((kelvin) - 273.15)  * 9/5 + 32;
- //    };
- //  });
- //
- //  app.filter('kelvinToCelsius', function() {
- // return function(kelvin) {
- // return parseFloat((kelvin) - 273.15);
- //    };
- //  });
- // weather api
-=======
 // weather api
->>>>>>> 770ef2ecf1bc3609f35d409c3102fe13dd84bb4f
- app.controller('WeatherCtrl', ['$http', function ($http){
-     this.getWeather = function () {
-     var query = 'http://api.openweathermap.org/data/2.5/weather?q='+this.city+'&APPID=eaf6fe412d32917ff999cc01f8b23979';
-     var ctrl = this;
- // eaf6fe412d32917ff999cc01f8b23979
+app.controller('WeatherCtrl', ['$http', '$routeParams', function ($http, $routeParams){
+    this.id = $routeParams.id;
+    console.log(this.id);
+    var query = 'http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=eaf6fe412d32917ff999cc01f8b23979';
+    var controller = this;
 
-     $http.get(query).success(
-       function(data) {
-         ctrl.weather = data;
-         var kelvin = data.main.temp;
-         var far = Math.floor((1.8 * (kelvin - 273) +32));
-         data.main.temp = far;
+// eaf6fe412d32917ff999cc01f8b23979
 
-       }
-     );
-   };
- }]);
-
-<<<<<<< HEAD
-// app.controller('ChartCtrl', function($scope), {
-//   $scope.charts = d3.range(10).map(function(){
-//     return d3.range(10).map(Math.random());
-//   });
-// });
-// d3
-// app.directive('chart', function(){
-//   function link(scope, el){
-//   }
-//     return {
-//       link: link,
-//       restrict: 'E'
-//     };
-// });
-=======
->>>>>>> 770ef2ecf1bc3609f35d409c3102fe13dd84bb4f
+    $http.get(query).then(
+      function(data) {
+        console.log(data);
+        controller.weather = data;
+      }
+    );
+}]);

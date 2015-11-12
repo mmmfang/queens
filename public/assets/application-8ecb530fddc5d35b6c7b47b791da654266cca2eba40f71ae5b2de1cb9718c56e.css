@@ -10,13 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
 
 
 /* IMPORTING GOOGLE FONTS */
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 @import url(https://fonts.googleapis.com/css?family=Abel);
@@ -29,46 +30,6 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
-
-/*Login Page Stylin*/
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.sensus {
-    margin-top: 40px !important;
-    color: #6dd4b1;
-    /*position: fixed;*/
-    text-align: center;
-    font-family: 'Abel', sans-serif !important;
-    font-size: 48px !important;
-    text-align: center !important;;
-
-    /*top: 20px;*/
-    padding: 30px;
-}
-
-.welcome {
-  text-align: center;
-
-}
-
-.form {
-  text-align: center;
-}
-
-h4.welcome {
-  font-weight: lighter;
-  color: #6dd4b1;
-}
-
-.front {
-  border-bottom: 1px solid black
-}
-
-
 
 body {
   background: #FFFBEA;
@@ -231,8 +192,8 @@ input[type=radio] {
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 5px;
-  height: 275px;
-  width: 275px;
+  height: 200px;
+  width: 300px;
   text-align: center;
   padding-top: 1em;
   display: inline-block;

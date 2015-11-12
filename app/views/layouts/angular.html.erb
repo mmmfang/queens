@@ -5,10 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
   <%= csrf_meta_tags %>
+
   <meta charset="utf-8">  <!-- it's important for d3.js -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
 
 
 
@@ -22,7 +25,8 @@
     <span>
       <h1>
         <!-- logo -->
-        <span class="logo">S E N S U S</span>
+        <span class="logo" class="animate">S E N S U S</span><br/>
+        <h3>Visualize Your Moods</h3>
         <br/>
         <!-- new mood post -->
         <a href="/form" class="headerlink">POST YOUR MOOD</a> |
@@ -35,6 +39,7 @@
   </header>
   </nav>
 
+<!--
   <div ng-controller="WeatherCtrl as ctrl">
     <input type="text"
             placeholder="enter your city"
@@ -50,7 +55,7 @@
    </div>
 <div>
   <bars-chart chart-data="myData" ></bars-chart>
-</div>
+</div> -->
 
 
      <%= yield %>
@@ -61,6 +66,11 @@
 
 
 
+
+
+  <%= yield %>
+   <div ng-view>
+</div>
 
 
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
