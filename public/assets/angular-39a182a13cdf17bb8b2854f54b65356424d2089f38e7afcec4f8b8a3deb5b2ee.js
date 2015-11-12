@@ -3,6 +3,8 @@
 ////////////////////////////////////////
 var app = angular.module('moodApp', ['ngRoute']);
 
+
+
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
 ////////////////////////////////////////
@@ -74,6 +76,8 @@ app.controller('MoodController', ['$http', function($http){
       controller.getMood();
     });
   };
+
+
 }]);
 
 
@@ -110,35 +114,19 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
  }]) ;
 
-/////////WEATHER APPLICATION
-
-// custom filters to convert from Kelvin
- app.filter('kelvinToFar', function() {
-return function(kelvin) {
-return parseFloat((kelvin) - 273.15)  * 9/5 + 32;
-   };
- });
-
- app.filter('kelvinToCelsius', function() {
-return function(kelvin) {
-return parseFloat((kelvin) - 273.15);
-   };
- });
-
 // weather api
 app.controller('WeatherCtrl', ['$http', '$routeParams', function ($http, $routeParams){
-    this.getWeather = function () {
-    var query = 'http://api.openweathermap.org/data/2.5/weather?q='+this.city+'&APPID=eaf6fe412d32917ff999cc01f8b23979';
-    var ctrl = this;
-    // this.weather = "";
+    this.id = $routeParams.id;
+    console.log(this.id);
+    var query = 'http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=eaf6fe412d32917ff999cc01f8b23979';
+    var controller = this;
+
 // eaf6fe412d32917ff999cc01f8b23979
 
-    $http.get(query).success(
+    $http.get(query).then(
       function(data) {
-        ctrl.weather = data;
-        console.log(data.name);
         console.log(data);
+        controller.weather = data;
       }
     );
-  };
 }]);
