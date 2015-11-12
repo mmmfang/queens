@@ -1,3 +1,4 @@
+<div ng-controller="MoodController as mood">
 <div id = "showall">
 <div id="emoji"
      ng-repeat="m in mood.current_user_moods | orderBy: '-created_at'"
@@ -14,7 +15,7 @@
 
 
      <!-- POST DATE -->
-     <span>Posted: <a ng-href="/moods/{{m.id}}">{{m.created_at | date:'MM/dd/yyyy @ h:mma'}}</a></span>
+     <span>Posted: {{m.created_at | date:'MM/dd/yyyy @ h:mma'}}</span>
 
 
      <!-- EMOJIS -->
@@ -63,6 +64,7 @@
       <!-- eight -->
       <span ng-show="m.happiness==8"
             class="emojishow">
+
          <img src="images/8.png"/>
       </span>
 
@@ -83,5 +85,7 @@
       <span ng-repeat="factor in m.factors">
         <h4>"{{factor.blurb}}"</h4>
       </span>
+      <a class="btn" ng-click="mood.deleteMood(m)">Delete</a><br>
+</div><br/>
 </div>
 </div>
