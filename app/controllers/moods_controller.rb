@@ -37,10 +37,8 @@ def show
 end
 
 def destroy
-<<<<<<< HEAD
-=======
   puts "-----ENTERING DELETE!!!!!-----"
->>>>>>> 620649d2fc665028a08afcfe2ff2be15766c538e
+
   @mood = Mood.find(params[:id])
   @mood.destroy!
   flash[:notice] = "Mood deleted!"
