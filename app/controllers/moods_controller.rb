@@ -36,8 +36,8 @@ def show
 end
 
 def destroy
-  @mood = current_user.moods(mood_params)
-  @mood.destroy
+  @mood = Mood.find(params[:id])
+  @mood.destroy!
   flash[:notice] = "Mood deleted!"
 
   redirect_to moods_path

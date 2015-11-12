@@ -1,7 +1,7 @@
 ////////////////////////////////////////
 /////////// MOOD APPLICATION ///////////
 ////////////////////////////////////////
-var app = angular.module('moodApp', ['ngRoute', 'ngResource']);
+var app = angular.module('moodApp', ['ngRoute']);
 
 
 ////////////////////////////////////////
@@ -57,7 +57,7 @@ app.controller('MoodController', ['$http', function($http){
       var mood = moodData.mood;
 
       // post the factors
-      $http.post('/moods/' + mood.id + "/factors", {
+      $http.post('/moods/' + mood.id + '/factors', {
         authenticity_token: authenticity_token,
         factor: {
           blurb: controller.factorsBlurb
@@ -75,6 +75,15 @@ app.controller('MoodController', ['$http', function($http){
       controller.getMood();
     });
   };
+
+  // delete the mood
+  this.deleteMood = function(mood) {
+  var index = controller.current_user_moods.indexOf(mood);
+  controller.current_user_moods.splice(index, 1);
+  };
+
+  controller.getMood();
+
 }]);
 
 
@@ -99,7 +108,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   }).when('/moods/:id',
       { controller:  'MoodController',
         controllerAs: 'mood',
-        templateUrl: '/angular_templates/show.html.erb'
+        templateUrl: '/angular_templates/moods.html.erb'
 
     // USER PROFILE PAGE
     }).when('/users/:id',
@@ -111,8 +120,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
  }]) ;
 
-/////////WEATHER APPLICATION
 
+ ////////////////////////////////////////
+ /////////// WEATHER CONTROLLER /////////
+ ////////////////////////////////////////
 // custom filters to convert from Kelvin
  app.filter('kelvinToFar', function() {
 return function(kelvin) {
