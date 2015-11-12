@@ -77,13 +77,13 @@ app.controller('MoodController', ['$http', function($http){
     });
   };
 
-    // delete the mood
-  this.deleteMood = function(mood) {
-  var index = controller.current_user_moods.indexOf(mood);
-  controller.current_user_moods.splice(index, 1);
-  };
+  //   // delete the mood
+  // this.deleteMood = function(mood) {
+  // var index = controller.current_user_moods.indexOf(mood);
+  // controller.current_user_moods.splice(index, 1);
+  // };
 
-  controller.getMood();
+  // controller.getMood();
  
  }]);
 
