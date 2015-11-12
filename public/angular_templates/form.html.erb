@@ -19,7 +19,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood one"
            for="one">
-         <img src="images/1.png"/>
+      <img src="images/1.png"/>
     </label>
 
 
@@ -45,7 +45,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood three"
            for="three">
-       <img src="images/3.png"/>    
+      <img src="images/3.png"/>    
     </label>
 
 <!-- four -->
@@ -83,7 +83,6 @@
            ng-model = "mood.happiness"/>
     <label class="mood six"
            for="six">
-     <!--  <%= image_tag "6.png" %>    -->  
       <img src="images/6.png"/>
     </label>
 
@@ -97,7 +96,6 @@
            ng-model = "mood.happiness"/>
     <label class="mood seven"
            for="seven">
-    <!--   <%= image_tag "7.png" %>    -->  
       <img src="images/7.png"/>
     </label>
 
@@ -111,8 +109,7 @@
            ng-model = "mood.happiness"/>
     <label class="mood eight"
            for="eight">
-<!--       <%= image_tag "8.png" %>     
- -->       <img src="images/8.png"/>    
+      <img src="images/8.png"/>    
     </label>
 
 
@@ -124,8 +121,7 @@
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood nine"
-           for="nine">
-     <!--  <%= image_tag "9.png" %> -->     
+           for="nine">   
       <img src="images/9.png"/>    
     </label>
 
@@ -139,8 +135,7 @@
            name="mood"
            ng-model = "mood.happiness"/>
     <label class="mood ten"
-           for="ten">
- <!--      <%= image_tag "10.png" %>   -->   
+           for="ten">  
       <img src="images/10.png"/>
     </label>
     <br/>
@@ -211,16 +206,16 @@
 
 <!-- Weather API Area -->
 
-  <div ng-controller="WeatherCtrl as ctrl">
-    <input type="text"
-            placeholder="enter your city"
-            ng-model='ctrl.city'
-            ng-submit="ctrl.getWeather()" /> <br>
-     <button ng-click="ctrl.getWeather()">Get Weather</button>
-         <h2>Current Weather For: {{ctrl.weather.name}}</h2>
-           <h4>Description: {{ctrl.weather.weather[0].description}}</h4>
-        <h4>Temp: {{ctrl.weather.main.temp | kelvinToFar | number:1}} &deg; F / {{ctrl.weather.main.temp | kelvinToCelsius | number:1}} &deg; C </h4>
-         <h4>Humidity: {{ctrl.weather.main.humidity}} %</h4>
-         <h4>Pressure: {{ctrl.weather.main.pressure}} hpa </h4>
+<div ng-controller="WeatherCtrl as ctrl">
+  <input  type="text"
+          placeholder="enter your city"
+          ng-model="ctrl.city"
+          ng-submit="ctrl.getWeather()" /> <br>
+   <button ng-click="ctrl.getWeather()">Get Weather</button>
+       <h2>Current Weather For: {{ctrl.weather.name}}</h2>
+          <h4>Description: {{ctrl.weather.weather[0].description}}</h4>
+          <h4>Temp: {{ctrl.weather.main.temp | kelvinToFar | number:1}} &deg; F / {{ctrl.weather.main.temp | kelvinToCelsius | number:1}} &deg; C </h4>
+          <h4>Humidity: {{ctrl.weather.main.humidity}} %</h4>
+          <h4>Pressure: {{ctrl.weather.main.pressure}} hpa </h4>
 
-   </div>
+ </div>
