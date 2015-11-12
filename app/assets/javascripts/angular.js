@@ -1,7 +1,8 @@
 ////////////////////////////////////////
 /////////// MOOD APPLICATION ///////////
 ////////////////////////////////////////
-var app = angular.module('moodApp', ['ngRoute']);
+var app = angular.module('moodApp', ['ngRoute', 'ngResource']);
+
 
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
@@ -95,7 +96,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         controller:  'MoodController',
         controllerAs: 'mood'
     // SHOW ONE MOOD
-  }).when('/moods/:mood_id',
+  }).when('/moods/:id',
       { controller:  'MoodController',
         controllerAs: 'mood',
         templateUrl: '/angular_templates/show.html.erb'
