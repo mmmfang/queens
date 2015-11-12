@@ -124,9 +124,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
  }]) ;
 
-/////////WEATHER APPLICATION
+ ////////////////////////////////////////
+ /////////// WEATHER CONTROLLER /////////
+ ////////////////////////////////////////
 
-// custom filters to convert from Kelvin 
+// custom filters to convert from Kelvin
+  app.filter('kelvinToFar', function() {
 app.filter('kelvinToFar', function() {
   return function(kelvin) {
   return parseFloat((kelvin) - 273.15)  * 9/5 + 32;
