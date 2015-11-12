@@ -10,9 +10,18 @@ Rails.application.routes.draw do
 
   resources :users, defaults: { format: :json }
 
+
+
   get '/session' => 'session#current_user', defaults: { format: :json }
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
+
+  # d3 routes
+  get '/graph' => 'graph#view'
+
+  # weather api
+
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
