@@ -212,3 +212,19 @@
 </form>
 </div>
 <!-- END OF FORMS -->
+
+<!-- Weather API Area -->
+
+  <div ng-controller="WeatherCtrl as ctrl">
+    <input type="text"
+            placeholder="enter your city"
+            ng-model='ctrl.city'
+            ng-submit="ctrl.getWeather()" /> <br>
+     <button ng-click="ctrl.getWeather()">Get Weather</button>
+         <h2>Current Weather For: {{ctrl.weather.name}}</h2>
+           <h4>Description: {{ctrl.weather.weather[0].description}}</h4>
+        <h4>Temp: {{ctrl.weather.main.temp | kelvinToFar | number:1}} &deg; F / {{ctrl.weather.main.temp | kelvinToCelsius | number:1}} &deg; C </h4>
+         <h4>Humidity: {{ctrl.weather.main.humidity}} %</h4>
+         <h4>Pressure: {{ctrl.weather.main.pressure}} hpa </h4>
+
+   </div>
