@@ -88,9 +88,6 @@ app.controller('MoodController', ['$http', function($http){
  }]);
 
 
-}]);
-
-
 ////////////////////////////////////////
 /////////// ROUTE CONTROLLER ///////////
 ////////////////////////////////////////
@@ -150,12 +147,12 @@ app.controller('WeatherCtrl', ['$http', '$routeParams', 'kelvinToFar', 'kelvinTo
     // this.weather = "";
 // eaf6fe412d32917ff999cc01f8b23979
 
-    $http.get(query).success(
-      function(data) {
-        ctrl.weather = data;
-        console.log(data.name);
-        console.log(data);
-      }
-    );
-  };
+      $http.get(query).success(
+        function(data) {
+          ctrl.weather = data;
+          console.log(data.name);
+          console.log(data);
+        }
+      );
+    };
 }]);
