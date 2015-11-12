@@ -130,7 +130,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
  }]) ;
 
 
-<<<<<<< HEAD
+
 
 
  // custom filters to convert from Kelvin
@@ -145,10 +145,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
  // return parseFloat((kelvin) - 273.15);
  //    };
  //  });
- // weather api
-=======
-// weather api
->>>>>>> 770ef2ecf1bc3609f35d409c3102fe13dd84bb4f
+
+
+////WEATHER CONTROLLER ///////
+
+
  app.controller('WeatherCtrl', ['$http', function ($http){
      this.getWeather = function () {
      var query = 'http://api.openweathermap.org/data/2.5/weather?q='+this.city+'&APPID=eaf6fe412d32917ff999cc01f8b23979';
@@ -167,7 +168,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
    };
  }]);
 
-<<<<<<< HEAD
+//D3
 // app.controller('ChartCtrl', function($scope), {
 //   $scope.charts = d3.range(10).map(function(){
 //     return d3.range(10).map(Math.random());
@@ -182,5 +183,4 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 //       restrict: 'E'
 //     };
 // });
-=======
->>>>>>> 770ef2ecf1bc3609f35d409c3102fe13dd84bb4f
+
