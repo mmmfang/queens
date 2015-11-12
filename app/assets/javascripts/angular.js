@@ -116,21 +116,23 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 /////////WEATHER APPLICATION
 
-// custom filters to convert from Kelvin 
- app.filter('kelvinToFar', function() {
-return function(kelvin) {
-return parseFloat((kelvin) - 273.15)  * 9/5 + 32;
-   };
- });
+// custom filters to convert from Kelvin
+// app.filter('kelvinToFar', function() {
+app.filter('kelvinToFar', function() {
+  return function(kelvin) {
+      return parseFloat((kelvin) - 273.15)  * 9/5 + 32;
+    };
+  }
+);
 
- app.filter('kelvinToCelsius', function() {
-return function(kelvin) {
-return parseFloat((kelvin) - 273.15);
-   };
- });
+app.filter('kelvinToCelsius', function() {
+  return function(kelvin) {
+    return parseFloat((kelvin) - 273.15);
+  };
+});
 
 // weather api
-app.controller('WeatherCtrl', ['$http', '$routeParams', 'kelvinToFar', 'kelvinToCelsius',function ($http, $routeParams, kelvinToFar, kelvinToCelsius){
+app.controller('WeatherCtrl', ['$http', function($http){
     this.getWeather = function () {
     var query = 'http://api.openweathermap.org/data/2.5/weather?q='+this.city+'&APPID=eaf6fe412d32917ff999cc01f8b23979';
     var ctrl = this;
