@@ -21,8 +21,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Abel);
 
-
-
+@import 'bower_component_name/stylesheet'
 
 /* GENERAL STYLING FOR EVERY PAGE */
 * {
@@ -37,8 +36,13 @@
   margin: 0;
 }
 
+.entry {
+  /*background-color: #FFFBEA;*/
+
+}
+
 .sensus {
-    margin-top: 40px !important;
+    margin-top: 40px;
     color: #6dd4b1;
     /*position: fixed;*/
     text-align: center;
@@ -72,16 +76,17 @@ h4.welcome {
 
 body {
   background: #FFFBEA;
-  margin-top: 25px;
 }
 
 /* LOGIN ACCEPTED STYLING */
 div.flash {
-  border: 1px solid #357099;
+  border: 1px solid steelblue;
   border-radius: 15px;
   padding: 1rem;
-  background: #6dd4b1;
+  background: rgb(184, 253, 255);
 }
+
+
 
 /* HEADER AND NAV */
 header {
@@ -103,7 +108,6 @@ header {
   border-bottom: 3px solid transparent;
   transition: 0.2s ease-out;
   white-space: nowrap;
-  font-size: 24px;
 }
 
 .headerlink:hover, .headerlink:focus {
@@ -114,10 +118,7 @@ header {
 
 .navbar {
   font-family: 'Abel', sans-serif;
-}
-
-nav {
-  margin-bottom: 50px;
+  margin-bottom: 1em;
 }
 
 
@@ -209,10 +210,6 @@ input[type=radio] {
   background: #6dd4b1;
 }
 
-.emojishow1 {
-  background: #357099;
-}
-
 
 
 /* STYLING OF EMOJIS THROUGHOUT */
@@ -229,20 +226,12 @@ input[type=radio] {
 /* STYLING OF MOOD & FACTORS POSTS*/
 #emoji {
   margin-bottom: 20px;
-  border: 1px solid transparent;
+  border: 1px solid #6dd4b1;
   border-radius: 5px;
-  height: 275px;
-  width: 275px;
+  height: 250px;
+  width: 250px;
   text-align: center;
   padding-top: 1em;
   display: inline-block;
   margin-right: 10px;
-}
-
-#date {
-  font-family: 'Open Sans', sans-serif;
-}
-
-#showall {
-  margin-left: 13%;
 }
