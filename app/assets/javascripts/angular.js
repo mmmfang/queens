@@ -76,18 +76,6 @@ app.controller('MoodController', ['$http', function($http){
     });
   };
 
-  // edit mood -- NOT TESTED
-  // this.editMood = function(mood) {
-  //   $http.patch('/moods/'+ mood.id, {
-  //     mood: {
-  //       happiness: mood.happiness,
-  //       factors: mood.factorsBlurb
-  //     }
-  //   }).success(function(data){
-  //     controller.getMood();
-  //   });
-  // };
-
   // delete the mood
   this.deleteMood = function(mood){
     var index = controller.current_user_moods.indexOf(mood);

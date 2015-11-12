@@ -85,7 +85,8 @@
       <span ng-repeat="factor in m.factors">
         <h4>"{{factor.blurb}}"</h4>
       </span>
-      <button type="button" ng-click="mood.deleteMood(m)">DELETE</button>
+      <button type="button" id = "delete" ng-click="mood.deleteMood(m)">DELETE</button>
+      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
       <br/>
 </div><br/>
 </div>
