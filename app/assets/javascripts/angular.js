@@ -4,7 +4,6 @@
 var app = angular.module('moodApp', ['ngRoute']);
 
 
-
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
 ////////////////////////////////////////
@@ -58,7 +57,7 @@ app.controller('MoodController', ['$http', function($http){
       var mood = moodData.mood;
 
       // post the factors
-      $http.post('/moods/' + mood.id + "/factors", {
+      $http.post('/moods/' + mood.id + '/factors', {
         authenticity_token: authenticity_token,
         factor: {
           blurb: controller.factorsBlurb
@@ -75,6 +74,22 @@ app.controller('MoodController', ['$http', function($http){
       controller.current_user_moods.push(mood);
       controller.getMood();
     });
+  };
+
+  // delete the mood
+  this.deleteMood = function(mood){
+    var index = controller.current_user_moods.indexOf(mood);
+    controller.current_user_moods.splice(index, 1);
+    console.log(mood.id);
+
+    $http.delete('/moods/' + mood.id, {
+      authenticity_token: authenticity_token
+    }).success(function (data){
+      console.log("SUCCESS");
+    }).error(function(data, err){
+      console.log("ERROR");
+    });
+    controller.getMood();
   };
 
 
@@ -99,10 +114,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         controller:  'MoodController',
         controllerAs: 'mood'
     // SHOW ONE MOOD
-  }).when('/moods/:mood_id',
+  }).when('/moods/:id',
       { controller:  'MoodController',
         controllerAs: 'mood',
-        templateUrl: '/angular_templates/show.html.erb'
+        templateUrl: '/angular_templates/moods.html.erb'
 
     // USER PROFILE PAGE
     }).when('/users/:id',
@@ -114,7 +129,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     });
  }]) ;
 
-/////////WEATHER APPLICATION
 
 // weather api
  app.controller('WeatherCtrl', ['$http', function ($http){
@@ -134,3 +148,4 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
      );
    };
  }]);
+

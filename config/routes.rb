@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'application#welcome'
 
-  get 'application/angular' 
+  get 'application/angular'
 
   resources :moods, defaults: { format: :json} do
     resources :factors, shallow: true
