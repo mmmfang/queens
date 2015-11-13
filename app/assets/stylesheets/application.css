@@ -26,7 +26,7 @@
 /* GENERAL STYLING FOR EVERY PAGE */
 * {
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+
 }
 
 /*Login Page Stylin*/
@@ -34,6 +34,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .entry {
@@ -66,6 +67,10 @@
 h4.welcome {
   font-weight: lighter;
   color: #6dd4b1;
+}
+
+h3 {
+  font-family: 'Abel', sans-serif !important;
 }
 
 .front {
@@ -102,6 +107,7 @@ header {
 
 .headerlink {
   font-family: 'Abel', sans-serif !important;
+  font-size: 24px;
   text-decoration: none;
   color: #6dd4b1;
   transition: all 0.2s linear;
@@ -225,13 +231,16 @@ input[type=radio] {
 
 /* STYLING OF MOOD & FACTORS POSTS*/
 #emoji {
-  margin-bottom: 20px;
-  border: 1px solid #6dd4b1;
+  margin-bottom: 10px;
   border-radius: 5px;
-  height: 250px;
-  width: 250px;
+  height: 275px;
+  width: 275px;
   text-align: center;
   padding-top: 1em;
   display: inline-block;
   margin-right: 10px;
+}
+
+#showall {
+  margin-left: 75px;
 }
