@@ -14,7 +14,7 @@ app.controller('HeaderController', ['$http', function($http){
   $http.get('/session').success(function(data){
     controller.current_user = data.current_user;
   });
-}]);
+}]); 
 
 
 ////////////////////////////////////////
