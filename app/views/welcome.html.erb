@@ -1,9 +1,10 @@
 <html>
 <head>
   <title>SENSUS</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ <!--  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> -->
   <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="stylesheets/application.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
@@ -20,7 +21,8 @@
         <span class="sensus">S E N S U S</span>
         <br/>
         <div id="rainbow">
-          <%= image_tag "logo.png" %>
+<!--           <%= image_tag "logo.png" %> -->
+              <img src="images/logo.png">
         </div>
         <!-- new mood post -->
         <!-- <a href class="headerlink"="#">POST YOUR MOOD</a> | -->
