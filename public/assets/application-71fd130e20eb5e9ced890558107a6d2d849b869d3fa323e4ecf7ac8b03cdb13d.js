@@ -11646,7 +11646,6 @@ return jQuery;
 var app = angular.module('moodApp', ['ngRoute']);
 
 
-
 ////////////////////////////////////////
 /////////// HEADER CONTROLLER //////////
 ////////////////////////////////////////
@@ -11657,7 +11656,7 @@ app.controller('HeaderController', ['$http', function($http){
   $http.get('/session').success(function(data){
     controller.current_user = data.current_user;
   });
-}]);
+}]); 
 
 
 ////////////////////////////////////////
@@ -11700,7 +11699,7 @@ app.controller('MoodController', ['$http', function($http){
       var mood = moodData.mood;
 
       // post the factors
-      $http.post('/moods/' + mood.id + "/factors", {
+      $http.post('/moods/' + mood.id + '/factors', {
         authenticity_token: authenticity_token,
         factor: {
           blurb: controller.factorsBlurb
@@ -11717,6 +11716,22 @@ app.controller('MoodController', ['$http', function($http){
       controller.current_user_moods.push(mood);
       controller.getMood();
     });
+  };
+
+  // delete the mood
+  this.deleteMood = function(mood){
+    var index = controller.current_user_moods.indexOf(mood);
+    controller.current_user_moods.splice(index, 1);
+    console.log(mood.id);
+
+    $http.delete('/moods/' + mood.id, {
+      authenticity_token: authenticity_token
+    }).success(function (data){
+      console.log("SUCCESS");
+    }).error(function(data, err){
+      console.log("ERROR");
+    });
+    controller.getMood();
   };
 
 
@@ -11741,10 +11756,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         controller:  'MoodController',
         controllerAs: 'mood'
     // SHOW ONE MOOD
-  }).when('/moods/:mood_id',
+  }).when('/moods/:id',
       { controller:  'MoodController',
         controllerAs: 'mood',
-        templateUrl: '/angular_templates/show.html.erb'
+        templateUrl: '/angular_templates/moods.html.erb'
 
     // USER PROFILE PAGE
     }).when('/users/:id',
@@ -11755,27 +11770,173 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       { redirectTo: '/'
     });
  }]) ;
-
-// weather api
-app.controller('WeatherCtrl', ['$http', '$routeParams', function ($http, $routeParams){
-    this.id = $routeParams.id;
-    console.log(this.id);
-    var query = 'http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=eaf6fe412d32917ff999cc01f8b23979';
-    var controller = this;
-
-// eaf6fe412d32917ff999cc01f8b23979
-
-    $http.get(query).then(
-      function(data) {
-        console.log(data);
-        controller.weather = data;
-      }
-    );
-}]);
 (function() {
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
+var d3 = angular.module('d3chart', []);
+
+d3.directive('chart', function () {
+  function link (scope, el){
+    this.getData = function () {
+      $http({
+        method: 'GET',
+        url: 'http://localhost:3000/moods.json'
+      }).
+      success(function (data){
+        $scope.data = data;
+      });
+    }; scope.getData();
+
+    //d3 code - setup bar graph
+    //setup margins
+    var margin = { top: 10, right: 20, bottom: 10, left: 20};
+    var w = 400 - margin.left - margin.right;
+    var h = 300 - margin.top - margin.bottom;
+
+    // append the svg to html element
+    var svg = d3.select('#graph').append('svg')
+    .attr('width', w)
+    .attr('height', h)
+    .append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
+    //setup the scales
+    //data needs to reach up into parent to communicate with controller
+    //data will be defined later
+    .domain([0, d3.max(scope.$parent.data)])
+    .range([0, h]);
+
+    var colorScale = d3.scale.quantize()
+      .domain([0, scope.$parent.data.length])
+      .range(['white', 'pink', 'deeppink', 'red']);
+
+    //setup x axis using occurred_at value
+   var xScale = d3.time.scale()
+ .domain([
+   d3.min(data, function(d) { return d.occurred_at; }),
+   d3.max(data, function(d) { return d.occurred_at; })
+ ]);
+
+    //append the bars
+    svg.selectAll('rect')
+    //bind data
+      .data(scope.$parent.data)
+      .enter()
+      .append('rect')
+      .attr('x', function(d) { return xScale(d); })
+      .attr('y', function(d) { return h - yScale(d); })
+      .attr('width', xScale.range())
+      .attr('height', function(d) { return yScale(d); });
+
+
+  // $scope.data = [$scope.moods.happiness, $scope.moods.occurred_at]
+
+
+}
+});
+
+    d3.select(el[0]).append('svg');
+  }
+    return {
+      link: link,
+      restrict: 'E',
+      templateUrl: '../public/angular_templates/chart.html'
+      // templateUrl: './views/graph/view.html.erb'
+    };
+});
+
+  //
+  //   angular.module('d3app', [])
+  // //set up controller to get the data
+  //     .directive('d3Graph', function (){
+  //
+  //     return {
+  //       // restrict to element only
+  //       restrict: 'E',
+  //       replace: true,
+  //       // allows two-way binding between controller and directive
+  //       scope: { val: '='},
+  //       template: '<div>hi there</div>',
+  //       link: function(scope, element, attrs) {
+  //
+  //           //get data
+  //           scope.getData = function () {
+  //             $http({
+  //               method: 'GET',
+  //               url: 'http://localhost:3000/moods.json'
+  //             }).
+  //             success(function (data){
+  //               $scope.data = data;
+  //             });
+  //           }; scope.getData();
+  //
+  //           //d3 code - setup bar graph
+  //           //setup margins
+  //           var margin = { top: 10, right: 20, bottom: 10, left: 20};
+  //           var w = 400 - margin.left - margin.right;
+  //           var h = 300 - margin.top - margin.bottom;
+  //
+  //           // append the svg to html element
+  //           var svg = d3.select('#graph').append('svg')
+  //           .attr('width', w)
+  //           .attr('height', h)
+  //           .append('g')
+  //           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+  //
+  //           //setup the scales
+  //           //data needs to reach up into parent to communicate with controller
+  //           //data will be defined later
+  //           .domain([0, d3.max(scope.$parent.data)])
+  //           .range([0, h]);
+  //
+  //           var colorScale = d3.scale.quantize()
+  //             .domain([0, scope.$parent.data.length])
+  //             .range(['white', 'pink', 'deeppink', 'red']);
+  //
+  //           //setup x axis using occurred_at value
+  //          var xScale = d3.time.scale()
+  //        .domain([
+  //          d3.min(data, function(d) { return d.occurred_at; }),
+  //          d3.max(data, function(d) { return d.occurred_at; })
+  //        ]);
+  //
+  //           //append the bars
+  //           svg.selectAll('rect')
+  //           //bind data
+  //             .data(scope.$parent.data)
+  //             .enter()
+  //             .append('rect')
+  //             .attr('x', function(d) { return xScale(d); })
+  //             .attr('y', function(d) { return h - yScale(d); })
+  //             .attr('width', xScale.range())
+  //             .attr('height', function(d) { return yScale(d); });
+  //
+  //
+  //         // $scope.data = [$scope.moods.happiness, $scope.moods.occurred_at]
+  //
+  //
+  //       }
+  //
+  //
+  //     };
+  //
+  //   });
+  //
+  // // ($scope, $http)) {
+  // //   $scope.getData = function () {
+  // //     $http({
+  // //       method: 'GET',
+  // //       url: 'http://localhost:3000/moods.json'
+  // //     }).
+  // //     success(function (data){
+  // //       $scope.data = data;
+  // //     });
+  // //   };
 (function() {
 
 
@@ -11792,7 +11953,9 @@ var weatherApp = angular.module('weatherApp', ['ngRoute']);
 
 weatherApp.controller('WeatherCtrl', ['$http', '$routeParams', function ($http, $routeParams){
     this.id = $routeParams.id;
+
     var query = 'api.openweathermap.org/data/2.5/weather?q={city name}';
+
     var conroller = this;
 
     $http.get(query).then(
